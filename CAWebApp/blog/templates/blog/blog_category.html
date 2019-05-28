@@ -1,0 +1,192 @@
+{% extends 'core/base.html' %}
+{% block title %}Blog CA{% endblock title %}
+{% load static %}
+
+<!-- Principal Banner Img -->
+{% block banner-img %}
+background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Banner Text -->
+{% block banner-text %}
+<h1>Nuestro Blog</h1>
+<p>Contigo América</p>
+<a>Reseñas</a>
+<spam> // </spam>
+<a>Artículos</a>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #d64223;
+{% endblock %}
+
+<!-- Head text -->
+{% block head-text %}
+{% endblock head-text %}
+
+<!-- Content -->
+{% block content %}
+<div class="blog-container">
+    <div class="post-container col-one">
+    {% if cMain %}
+        {% for i in cMain %}
+            <div class="hero-one">
+                <a href='{% url "categorias" "reseñas" %}'>
+                <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
+                <div class="post-content">
+                    <h2>{{i.titulo}}</h2>
+                    <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                        recteque
+                        expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="hero-one">
+            <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h2>ACÁ NO ENTRADAS</h2>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+    <div class="post-container col-two">
+        <div class="hero-two">
+        {% if cSec %}
+            {% for i in cSec %}
+            <a href="{% url 'categorias' 'articulos' %}">
+            <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>{{i.titulo}}</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>Heading</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+        {% endif %}
+        </div>
+        <div class="hero-three">
+        {% if cTer %}
+            {% for i in cTer %}
+            <a href='{% url "categorias" "entrevistas" %}'>
+                <img src="{{i.imagen.url}}" alt="{{i.titulo}}" style="width:100%;">
+                <div class="post-content">
+                    <h4>{{i.titulo}}</h4>
+                    <p>Número de Entradas</p>
+                </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>Heading</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+    <div class="post-container col-three">
+        <div class="hero-four">
+        {% if cCuart %}
+            {% for i in cCuart %}
+            <a href='{% url "categorias" "enprofundidad" %}'>
+            <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>{{i.titulo}}</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>Heading</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+        {% endif %}
+        </div>
+        <div class="hero-five">
+        {% if cQuint %}
+            {% for i in cQuint %}
+            <a href='{% url "categorias" "noticias" %}'>
+            <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>{{i.titulo}}</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
+            <div class="post-content">
+                <h4>Heading</h4>
+                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
+                    recteque
+                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</div>
+<h1>sdfklsnvbvjksfnvkjsfnvsvss{{post}}</h1>
+{% for i in post %}
+<div class="blog-main"> 
+    <div class="blog-ul-container">
+        <ul class="clearfix">
+                    
+            <li class="blog-br">
+                <a href="">
+                    <div class="blog-main-header" style="background-image:url('{{i.imagen.url}}');">
+                        <h4>{{i.titulo}}</h4>
+                        <h3></h3>
+                    </div>
+                    <div class="blog-main-footer">
+                        <h2>{{i.autor}}</h2>
+                        <p>{{i.contenido | safe}}</p>
+                    </div>
+                </a>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="filtros" id="">
+        <button class="btn active" onclick="filterSelection('all')">Mostrar Todas las obras</button>
+        <h3>Filtros</h3>
+    {% for a in i.etiquetaBlog.all %}
+        <button class="btn" onclick="filterSelection('{{a.name}}')">{{a.name}}</button>
+    {% endfor %}
+    </div>
+
+</div>
+{% endfor %}
+<div class="clearfix"></div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+
+{% endblock scripts %}

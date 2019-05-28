@@ -1,0 +1,95 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Biblioteca{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+{% endblock banner-text %}
+
+<!-- Head Text -->
+{% block head-text %}
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block biblio %}
+    <div class="parallax" style="background-image: url('{% static 'core/img/foro/espacios/biblio5.jpg' %}');">
+        <div class="biblio-hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static core/photographer.jpg');">
+            <div class="biblio-hero-text">
+                <h1 style="font-size:50px">Biblioteca Raquel Seoane</h1>
+                <h4>Institución Teatral Independiente</h4>
+                <div class="container-1">
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                    <form method='GET' action="{% url 'biblio-index' %}">
+                        {% csrf_token %}
+						{{ form.as_p }} 
+                        <input type="search" name="qs" id="search" placeholder="Search..." />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-biblio">
+        <div id="biblio-navbar">
+            <div class="base-logo" id="biblio-logo">
+                <img id="biblio-logo-img" src="{% static 'core/img/logos/contigo_america_fondo_blanco.png' %}" />
+            </div>
+            <div id="biblio-brand" class="inline-block base-brand">
+                <h3 id="biblio-brand-h3">Contigo América</h3>
+                <h4 id="biblio-brand-h4">Institución Teatral Independiente A.C.</h4>
+            </div>
+            <div class="base-menu">
+                <div class="inline-block base-menu-foro base-subnav-menu">
+                    <button id="biblio-btn" class="subnavbtn"><i class="fa fa-caret-down"></i>
+                        Nuestro Foro
+                    </button>
+                    <div class="subnav-content biblio-subnav">
+                        <div class="subnav-sub">
+                            <a class="{% if request.path == '/cartelera/' %}active{% endif %}" href="{% url 'cartelera' %}" >Cartelera // </a>
+                            <a class="{% if request.path == '/acerca/' %}active{% endif %}" href="{% url 'acerca' %}" >Acerca // </a>
+                            <a class="{% if request.path == '/convocatoria/' %}active{% endif %}" href="{% url 'foro' %}" >Convocatorias // </a>
+                            <a class="{% if request.path == '/rentas/' %}active{% endif %}" href="{% url 'foro' %}" >Rentas // </a>
+                            <a class="{% if request.path == '/faqs/' %}active{% endif %}" href="{% url 'faqs' %}" >Faqs</a>
+                        </div>
+                        <div class="subnav-links-generales">
+                            <a class="{% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}" >Blog *</a>
+                            <a class="{% if request.path == '/galeria/' %}active{% endif %}" href="{% url 'galeria' %}" >Galería *</a>
+                            <a class="{% if request.path == '/contacto/' %}active{% endif %}" href="{% url 'contacto' %}" >Contacto </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block base-menu-inst base-subnav-menu">
+                    <button id="biblio-btn" class="subnavbtn">Institución <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="subnav-content biblio-subnav">
+                        <div class="subnav-sub">
+                            <a class="{% if request.path == '/historia/' %}active{% endif %}" href="{% url 'historia' %}" >Historia // </a>
+                            <a class="{% if request.path == '/compañia/' %}active{% endif %}" href="{% url 'compañia' %}" >Compañia // </a>
+                            <a class="{% if request.path == '/compañia/' %}active{% endif %}" href="{% url 'compañia' %}" >Repertorio // </a>
+                            <a class="{% if request.path == '/biblioteca/' %}active{% endif %}" href="{% url 'biblioteca' %}" >Biblioteca </a>
+                        </div>
+                        <div class="subnav-links-generales">
+                            <a class="{% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}" >Blog * </a>
+                            <a class="{% if request.path == '/galeria/' %}active{% endif %}" href="{% url 'galeria' %}" >Galería * </a>
+                            <a class="{% if request.path == '/contacto/' %}active{% endif %}" href="{% url 'contacto' %}" >Contacto </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock biblio %}
+
+<!-- Scripts -->
+{% block scripts %}
+    
+{% endblock scripts %}
+
+
+
+

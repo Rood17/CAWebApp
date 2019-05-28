@@ -1,0 +1,115 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Faq´s{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h1>Faqs</h1>
+    <h4>Preguntas Frecuentes</h4>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #23b7d6;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+    <div class="">
+            <p>Si no encuentras alguna de tus dudas, ponte en contacto con nosotros y con gusto te responderemos.</p>
+            <div class="kit-contacto">
+                <a><i class='fab fa-whatsapp'></i></a>
+                <a><i class='fas fa-envelope'></i></a>
+				<a><i class='fas fa-phone'></i></a>
+                <span> | </span>
+                <a><i class="fab fa-facebook-f"></i></a>
+				<a><i class="fab fa-twitter"></i></a>
+				<a><i class="fab fa-instagram"></i></a>
+            </div>    
+        </div>
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <div class="container-faqs">
+        
+        <button class="accordion">¿Es forzoso hacer reservación para asistir a algún evento en el foro?</button>
+        <div class="panel">
+            <p>No, pero en ciertos casos cuando el evento es muy solicitado resulta conveniente y además al reservar
+                basta con que te presentes 10 min. antes para recoger tus entradas.</p>
+        </div>
+        <button class="accordion">¿Hay estacionamiento en el foro para público?</button>
+        <div class="panel">
+            <p>No, el foro no cuenta con estacionamiento. Pero si se llega con anticipación, puede encontrarse
+                estacionamiento en los alrededores. En la colonia Nápoles se han instalado parquímetros que funcionan
+                de las 8:00 a las 20:00 hrs.</p>
+        </div>
+        <button class="accordion">¿Cuál es el costo de entrada a las obras?</button>
+        <div class="panel">
+            <p>No hay un costo como tal. Se pide un donativo, que se sugiere sea de $150.00 por persona. Sin embargo,
+                se acepta cualquier monto en el donativo.</p>
+        </div>
+        <button class="accordion">¿A qué se refieren con donativo sugerido?</button>
+        <div class="panel">
+            <p>Significa que puedes aportar en la taquilla con lo que tu creas conveniente antes de entrar a la
+                presentación, se sugieren $150 pesos, teniendo en cuenta el trabajo de los actores, de la producción y
+                demás gastos para el mantenimiento del foro, sin embargo se acepta cualquier monto en el donativo.</p>
+        </div>
+        <button class="accordion">¿Cuál es la capacidad de cupo en el foro?</button>
+        <div class="panel">
+            <p>52 personas sentadas en butacas.</p>
+        </div>
+        <button class="accordion">¿Con cuánto tiempo de anticipación se abre el foro antes de cada función? </button>
+        <div class="panel">
+            <p>El foro se abre una hora antes de cada función.</p>
+        </div>
+        <button class="accordion">¿Cuál es el tiempo de tolerancia para entrar a la sala una vez comenzada la función?</button>
+        <div class="panel">
+            <p>Diez minutos después de comenzar la función. Salvo en el caso de indicación contraria por parte de la
+                agrupación que se esté presentando.</p>
+        </div>
+        <button class="accordion">¿Qué requiero hacer si quiero rentar el espacio?</button>
+        <div class="panel">
+            <p>Te pedimos nos escribas tus motivos y fechas preferentes a<a href="mailto:example@tutorialspark.com"
+                    style="color: #ccccff;"> contigoamerica@yahoo.com.mx</a> o si lo prefieres nos puedes escribir vía
+                Messenger de Facebook y con mucho gusto te atenderemos.</p>
+        </div>
+        <button class="accordion">¿Qué requiero hacer si quiero presentarme en cartelera?</button>
+        <div class="panel">
+            <p>Para presentarte con nosotros te pedimos que nos envies la carpeta de la obra completa, si tienes dudas
+                escribenos a<a href="mailto:example@tutorialspark.com" style="color: #ccccff;">
+                    contigoamerica@yahoo.com.mx</a> o si lo prefieres por Messenger de Facebook.</p>
+        </div>
+    </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+       <!-- Accordion -->
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].onclick = function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            }
+        }
+    </script>
+
+{% endblock scripts %}
+
+

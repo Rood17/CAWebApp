@@ -1,0 +1,191 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Historia{% endblock title %}
+
+<!-- Head -->
+{% block head %}
+<link href="{% static 'core/css/historia.css' %}" rel="stylesheet">
+{% endblock head %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/escena/1.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+     <h1>Historia Contigo América</h1>
+                <p></p>
+                <h1></h1>
+                <a>Línea del Tiempo</a>
+                <spam> // </spam>
+                <a>Perfiles</a>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #f8ec48;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <div class="timeline-container" id="timeline-1">
+        <div class="timeline-header">
+            <h2 class="timeline-header__title">Una experiencia teatral de 35 años</h2>
+            <h3 class="timeline-header__subtitle">Institución de Teatro Independiente</h3>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item" data-text="Orígenes de El Galpón">
+                <div class="timeline__content"><img class="timeline__img" src="{% static 'core/img/historia/galpon1.jpg' %}" />
+                    <h2 class="timeline__content-title">1976</h2>
+                    <p class="timeline__content-desc">El Galpón, agrupación teatral uruguaya
+                        heredera del movimiento teatral independiente latinoamericano, se vio
+                        obligado a abandonar Uruguay a causa del golpe militar y a la dictadura
+                        que le siguió y salir al exilio, llegando a México, donde se le abrieron
+                        los espacios escénicos institucionales para desarrollar su trabajo
+                        artístico..</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-text="Creación de Contigo América">
+                <div class="timeline__content"><img class="timeline__img" src="{% static 'core/img/historia/raquel-y-blas-2.jpg' %}" />
+                    <h2 class="timeline__content-title">1981</h2>
+                    <p class="timeline__content-desc">Blas Braidot y Raquel Seoane, miembros importantes pertenecientes
+                        a El Galpón, decidieron quedarse en el país que los había acogido, dándoles asilo político. En
+                        esta fecha, junto con Mario Ficachi y un grupo de actores mexicanos conformaron la institución
+                        teatral independiente Contigo América.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-text="LOS PRIMEROS TIEMPOS DE CONTIGO AMÉRICA
+
+            ">
+                <div class="timeline__content"><img class="timeline__img" src="{% static 'core/img/historia/primeros-timepos.jpg' %}" />
+                    <h2 class="timeline__content-title">1985</h2>
+                    <p class="timeline__content-desc">Sobresalió en ese primer momento el modo de producción artístico
+                        integral y la calidad de montajes como Los que no usan smoking y Costumbres. De entonces a la
+                        fecha, Contigo América ha venido desarrollando una trayectoria de trabajo artístico y cultural
+                        ininterrumpido.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-text="SE CONSOLIDA">
+                <div class="timeline__content"><img class="timeline__img" src="{% static 'core/img/historia/grupo-2.jpg' %}" />
+                    <h2 class="timeline__content-title">1987</h2>
+                    <p class="timeline__content-desc">Contigo América, como proyecto teatral, ha abarcado la producción
+                        de obras, la investigación y la formación teatral, y como agrupación teatral el mantenimiento
+                        de la vida institucional y grupal en un empeño por consolidarse como una institución teatral
+                        independiente con un compromiso social.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-text="NUEVOS RUMBOS">
+                <div class="timeline__content"><img class="timeline__img" src="{% static 'core/img/historia/grupo-3.jpg' %}" />
+                    <h2 class="timeline__content-title">2005</h2>
+                    <p class="timeline__content-desc">Se estrena en el foro del grupo Exilios, con Raquel Seoane,
+                        Liliana Guido, Sandra Galeano, Alejandro Aldama, Williams Sayago, José Manuel Galván, Rodrigo
+                        Zelocuatecatl, bajo la dirección de Felipe Galvan.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-text="ACTUAL GRUPO CONTIGO AMÉRICA">
+                <div class="timeline__content"><img class="timeline__img" src="{% static 'core/img/historia/grupo-4.jpg' %}" />
+                    <h2 class="timeline__content-title">Presente</h2>
+                    <p class="timeline__content-desc">Contigo América ha trasladado al panorama teatral mexicano las
+                        estrategias de producción del teatro independiente nacido en el sur del continente,
+                        caracterizado por poner el acento en el trabajo de grupo contribuyendo al desarrollo de un
+                        teatro a través del que se estimule la comprensión de los problemas de la realidad de nuestro
+                        contexto social.
+
+                        En la actualidad, a treinta y seis años de su fundación, se encuentra en una etapa en la que la
+                        pretensión es mantener la vigencia de la propuesta estética original y no abandonar los valores
+                        que le dieron forma al movimiento teatral independiente latinoamericano: un teatro de arte y de
+                        compromiso social.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-container container">
+        <h2>Contigo América Institución teatral Independiente A.C.</h2>
+        <p>Contigo América. Institución Teatral Independiente A.C. fue fundada el 2 de febrero de 1981. Desde su comienzo a la fecha, ha venido desarrollando una trayectoria de trabajo artístico y cultural, por lo que, en función de esta trayectoria, se conforma en un referente del teatro independiente.</p>
+        <br>
+
+        
+        <div class="clearfix"></div>
+        <!-- <div>
+            <div>
+                <img src="">
+                Blog
+            </div>
+            <div>Compañía de Teatro</div>
+            <div>Nuestra Hisotría</div>
+            <div>Contacto</div>
+        </div> -->
+    </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    <!-- About -->
+    <script>
+        (function ($) {
+            $.fn.timeline = function () {
+                var selectors = {
+                    id: $(this),
+                    item: $(this).find(".timeline-item"),
+                    activeClass: "timeline-item--active",
+                    img: ".timeline__img"
+                };
+                selectors.item.eq(0).addClass(selectors.activeClass);
+                selectors.id.css(
+                    "background-image",
+                    "url(" +
+                    selectors.item
+                        .first()
+                        .find(selectors.img)
+                        .attr("src") +
+                    ")"
+                );
+                var itemLength = selectors.item.length;
+                $(window).scroll(function () {
+                    var max, min;
+                    var pos = $(this).scrollTop();
+                    selectors.item.each(function (i) {
+                        min = $(this).offset().top;
+                        max = $(this).height() + $(this).offset().top;
+                        var that = $(this);
+                        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                            selectors.item.removeClass(selectors.activeClass);
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                selectors.item
+                                    .last()
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.last().addClass(selectors.activeClass);
+                        } else if (pos <= max - 40 && pos >= min) {
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                $(this)
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.removeClass(selectors.activeClass);
+                            $(this).addClass(selectors.activeClass);
+                        }
+                    });
+                });
+            };
+        })(jQuery);
+
+        $("#timeline-1").timeline();
+
+    </script>
+{% endblock scripts %}

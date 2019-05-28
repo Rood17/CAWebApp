@@ -1,0 +1,198 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/espacios/3.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h5>Nuestros Espacios</h5>
+                    <p>Arizona #156, col. Nápoles</p>
+                    <a>El Foro</a>
+                    <spam> // </spam>
+                    <a>Sala Blass</a>
+                    <spam> // </spam>
+                    <a>Biblioteca</a>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #f8ec48;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+<p>Lejos del modelo de Teatro Independiente mexicano,
+                    que alcanzó su auge en los años setenta y se caracterizó
+                    por la prioridad de la eficacia política sobre la
+                    eficacia estética, la experiencia de "Contigo América",
+                    significa la puesta a prueba en nuestro país del modelo
+                    de independencia artísitica y operativa que constituye
+                    la mayor aportación del teatro sudamericano
+                    (particularmente en las experiencias de países como
+                    Argentina y Uruguay).<span class="citas"> Rodolfo Obregon.</span>
+                </p>{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <div class="foro-info-container">
+            <div class="foro-info">
+                <div class="foro-img-container inline-block">
+                    <img src="{% static 'core/img/foro/espacios/vestibulo1.jpg' %}" alt="" class="foro-espacios-img">
+                    <div class="foro-espacios-overlay">
+                        <div class="foro-img-text">
+                            <h1>Vestibulo</h1>
+                            <a>Galeria</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="foro-aside-container f-a-c-der inline-block">
+                    <h1>Vestibulo</h1>
+                    <h3>Foro Contigo América</h3>
+                    <ul>
+                        <li>Área de exposiciones</li>
+                        <li>Cafetería</li>
+                        <li>Ideal para esperar la función</li>
+                    </ul>
+                    <ul class="foro-aside-anchor">
+                        <li><a>Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foro-info">
+                <div class="foro-aside-container f-a-c-izq inline-block">
+                    <h1>Foro Contigo América</h1>
+                    <h3>Teatro Independiente</h3>
+                    <ul>
+                        <li>Foro Principal</li>
+                        <li>Aforo de 52 butacas.</li>
+                        <li>Escenario de 9 x 5.8 mts.</li>
+                        <li>Equipada con Iluminación,</li>
+                        <li>Consola de Audio,</li>
+                        <li>Parks y Leekos.</li>
+                    </ul>
+                    <ul class="foro-aside-anchor">
+                        <li><a>Convocatoria</a><span> // </span></li>
+                        <li><a>Renta</a><span></span></li>
+                    </ul>
+                </div>
+                <div class="foro-img-container inline-block">
+                    <img src="{% static 'core/img/foro/espacios/foro.jpg' %}" alt="" class="foro-espacios-img">
+                    <div class="foro-espacios-overlay">
+                        <div class="foro-img-text">
+                            <h1>Foro - Contigo América</h1>
+                            <a>Galeria</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foro-info">
+                <div class="foro-img-container inline-block">
+                    <img src="{% static 'core/img/foro/espacios/blas.jpg' %}" alt="" class="foro-espacios-img">
+                    <div class="foro-espacios-overlay">
+                        <div class="foro-img-text">
+                            <h1>Sala Blass Blaidot</h1>
+                            <a>Galeria</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="foro-aside-container f-a-c-der inline-block">
+                    <h1>Sala Blas Blaidot</h1>
+                    <h3>Teatro Independiente</h3>
+                    <ul>
+                        <li>Foro Secundario.</li>
+                        <li>Aforo de 20 a 25 espectadores.</li>
+                        <li>Equipada con Iluminación,</li>
+                        <li>y Equipo de Audio.</li>
+                    </ul>
+                    <ul class="foro-aside-anchor">
+                        <li><a>Convocatoria</a><span> // </span></li>
+                        <li><a>Renta</a><span></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foro-info">
+                <div class="foro-aside-container f-a-c-izq inline-block">
+                    <h1>Biblioteca Raquel Seoane</h1>
+                    <h3>Teatro Independiente</h3>
+                    <ul>
+                        <li>Más de 640 ejemplares, entre...</li>
+                        <li>Técnicas Actorales.</li>
+                        <li>Clásicos del Teatro.</li>
+                        <li>Producción Teatral.</li>
+                        <li>Y muchos otros temas más...</li>
+                    </ul>
+                    <ul class="foro-aside-anchor">
+                        <li><a>Catálogo</a><span> // </span></li>
+                        <li><a>Citas</a><span></span></li>
+                    </ul>
+                </div>
+                <div class="foro-img-container inline-block">
+                    <img src="{% static 'core/img/foro/espacios/biblio.jpg' %}" alt="" class="foro-espacios-img">
+                    <div class="foro-espacios-overlay">
+                        <div class="foro-img-text">
+                            <h1>Biblioteca</h1>
+                            <a>Galeria</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foro-info">
+                <div class="foro-img-container inline-block">
+                    <img src="{% static 'core/img/foro/espacios/camerino.jpg' %}" alt="" class="foro-espacios-img">
+                    <div class="foro-espacios-overlay">
+                        <div class="foro-img-text">
+                            <h1>Camerino</h1>
+                            <a>Galeria</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="foro-aside-container f-a-c-der inline-block">
+                    <h1>Camerino</h1>
+                    <h3>Teatro Independiente</h3>
+                    <ul>
+                        <li>Espacio para utileria.</li>
+                        <li>Espacio para vestuario.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foro-info">
+                <div class="foro-aside-container f-a-c-izq inline-block">
+                    <h1>En Escena</h1>
+                    <h3>Teatro Independiente</h3>
+                    <ul>
+                        <li>Esta compañia, sin duda,
+                            ha marcado un parteaguas
+                            y es un referente del
+                            Teatro Indeoendiente
+                            en nuestro país. <span class="citas">Marío Espinosa Ricalde.
+                            </span></li>
+                    </ul>
+                    <ul class="foro-aside-anchor">
+                        <li><a>Compañia</a><span> // </span></li>
+                        <li><a>Historia</a><span></span></li>
+                    </ul>
+                </div>
+                <div class="foro-img-container inline-block">
+                    <img style="border:solid 1px green" src="{% static 'core/img/foro/espacios/enescena.jpg' %}" alt="" class="foro-espacios-img">
+                    <div class="foro-espacios-overlay">
+                        <div class="foro-img-text">
+                            <h1>En Escena</h1>
+                            <a>Galeria</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    
+{% endblock scripts %}

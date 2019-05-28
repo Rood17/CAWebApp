@@ -1,0 +1,148 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Compañía{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+background-image: url('{% static 'core/img/historia/grupo-4.jpg' %}');
+background-repeat: no-repeat;
+background-size: unset;
+background-position-y: 33%;
+background-position-x: 0%;
+height:;
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+<h5>Compañía de Teatro</h5>
+<p>Contigo América</p>
+{% endblock banner-text %}
+{% block banner-text-style %}
+left:25%;
+{% endblock %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+background-color: #d64223;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+<h3>Nuestra propuesta creativa</h3>
+<br>
+{{propuesta | safe}}
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+
+<div class="compañia-contenedor">
+	<div class="compañia-header">
+		<div class="bio-container col-one-co">
+			<div class="img-gray bio-one">
+				<img src="{% static 'core/img/grupo/grupo-1.jpg' %}" alt="Notebook" style="width:100%;">
+			</div>
+			<div class="bio-two">
+				{% for i in sandra %}
+				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
+				<div class="bio-content">
+					<h1>{{i.nombre}}</h1>
+					<p>Más Info</p>
+				</div>
+			{% endfor %}
+			</div>
+			<div class="bio-three">
+				{% for i in hector %}
+				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
+				<div class="bio-content">
+					<h1>{{i.nombre}}</h1>
+					<p>Más Info</p>
+				</div>
+			{% endfor %}
+			</div>
+			<div class="img-gray bio-four">
+				<img src="{% static 'core/img/grupo/grupo-2.jpg' %}" alt="Notebook" style="width:100%;">
+			</div>
+		</div>
+		<div class="bio-container col-two-co">
+			<div class="bio-5">
+				<img src="{% static 'core/img/historia/grupo-4.jpg' %}" alt="Notebook" style="width:100%;">
+				<div class="bio-content">
+					<h1>Heading</h1>
+					<p>.</p>
+				</div>
+			</div>
+			<div class="img-gray bio-6">
+				<img src="{% static 'core/img/grupo/grupo-3.jpg' %}" alt="Notebook" style="width:100%;">
+
+			</div>
+			<div class="img-gray bio-7">
+				<img src="{% static 'core/img/grupo/grupo-4.jpg' %}" alt="Notebook" style="width:100%;">
+
+			</div>
+			<div class="bio-8">
+				{% for i in ale %}
+				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
+				<div class="bio-content">
+					<h1>{{i.nombre}}</h1>
+					<p>Más Info</p>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+		<div class="bio-container col-three-co">
+			<div class="img-gray bio-9">
+				<img src="{% static 'core/img/grupo/grupo-5.jpg' %}" alt="Notebook" style="width:100%;">
+			</div>
+			<div class="bio-10">
+				{% for i in lili %}
+				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
+				<div class="bio-content">
+					<h1>{{i.nombre}}</h1>
+					<p>Más Info</p>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="bio-11">
+			{% for i in willi %}
+				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
+				<div class="bio-content">
+					<h1>{{i.nombre}}</h1>
+					<p>Más Info</p>
+				</div>
+			{% endfor %}
+			</div>
+			<div class="img-gray bio-12">
+				<img src="{% static 'core/img/grupo/grupo-6.jpg' %}" alt="Notebook" style="width:100%;">
+			</div>
+		</div>
+	</div>
+	<div class="lista-biblio-container">
+		<h2>Repertorio</h2>
+		{% for i in repertorio %}
+		<div class="libro-container">
+			<img id="repertorio-img" src="{{i.imagen.url}}" />
+			<div class="libro-info">
+				<h1>{{i.titulo}}</h1>
+				<h4>Autor {{i.autor}}</h4>
+				<h4>Dirección {{i.director}}</h4>
+				<p>{{i.descripcion | safe}}</p>
+				<!-- <ul>
+					<li>Etiquetas</li>
+					<li>Etiquetas</li>
+				</ul> -->
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+
+{% endblock scripts %}

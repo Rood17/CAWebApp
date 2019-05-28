@@ -1,0 +1,123 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}El Grupo{% endblock title %}
+
+{% block banner-text-style %}
+	left: 50%;
+{% endblock %}
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/escena/5.jpg' %}');
+{% endblock banner-img %}
+{% block banner-text %}
+    <h5>Acerca de</h5>
+    <p>El Equipo</p>
+{% endblock banner-text %}
+
+{% block subbanner-color %}
+    background-color: #d64223;
+{% endblock %}
+
+{% block head-text %}
+    <p>Lorem ipsum, dolor sit amet consectetur
+                adipisicing elit. Fugiat nam, numquam
+                itaque dicta hic repudiandae nihil possimus
+                laudantium atque at libero cum iste odit eveniet
+                liquam debitis placeat dolores reprehenderit!</p>
+{% endblock head-text %}
+
+{% block content %}
+    <!-- About Container -->
+    <div class="about-container container">
+        <h2>Equipo de trabajo del "Foro Contigo América". </h2>
+        <p>Super Equipo.</p>
+        <br>
+
+        <div class="about-row">
+        <div class="about-column">
+                <div class="about-card">
+                    <img src="{% static 'core/img/about/grupo_lili.jpg' %}" alt="Mike" style="">
+                    <div class="about-container">
+                        <h2>Liliana Guido</h2>
+                        <p class="about-title">Encargado de la Programación del Foro</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id nostrum ipsam blanditiis delectus ut natus ad itaque eaque molestiae facilis nam distinctio cum porro architecto, minus excepturi omnis autem temporibus.</p>
+                        <p>example@example.com</p>
+                        <p><button class="about-button"><a href="{% url 'acerca-bio' %}">Contact</a></button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-column">
+                <div class="about-card">
+                    <img src="{% static 'core/img/about/grupo_willi.jpg' %}" alt="" style="">
+                    <div class="about-container">
+                        <h2>William Sayago</h2>
+                        <p class="about-title">Encargado de la Programación del Foro</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id nostrum ipsam blanditiis delectus ut natus ad itaque eaque molestiae facilis nam distinctio cum porro architecto, minus excepturi omnis autem temporibus.</p>
+                        <p>example@example.com</p>
+                        <p><button class="about-button"><a href="{% url 'acerca-bio' %}">Contact</a></button></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-column">
+                <div class="about-card">
+                    <img src="{% static 'core/img/about/grupo_hector.jpg' %}" alt="Mike" style="">
+                    <div class="about-container">
+                        <h2>Héctor Yaza</h2>
+                        <p class="about-title">Encargado de la Programación del Foro</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id nostrum ipsam blanditiis delectus ut natus ad itaque eaque molestiae facilis nam distinctio cum porro architecto, minus excepturi omnis autem temporibus.</p>
+                        <p>example@example.com</p>
+                        <p><button class="about-button"><a href="{% url 'acerca-bio' %}">Contact</a></button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-column">
+                <div class="about-card">
+                    <img src="{% static 'core/img/about/grupo_ale.jpg' %}" alt="John" style="">
+                    <div class="about-container">
+                        <h2>Alejandro Aldama</h2>
+                        <p class="about-title">Encargado de la Programación del Foro</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id nostrum ipsam blanditiis delectus ut natus ad itaque eaque molestiae facilis nam distinctio cum porro architecto, minus excepturi omnis autem temporibus.</p>
+                        <p>example@example.com</p>
+                        <p><button class="about-button"><a href="{% url 'acerca-bio' %}">Contact</a></button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-column">
+                <div class="about-card">
+                    <img src="{% static 'core/img/about/grupo_sandra.jpg' %}" alt="Mike" style="">
+                    <div class="about-container">
+                        <h2>Sandra Galeano</h2>
+                        <p class="about-title">Encargado de la Programación del Foro</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id nostrum ipsam blanditiis delectus ut natus ad itaque eaque molestiae facilis nam distinctio cum porro architecto, minus excepturi omnis autem temporibus.</p>
+                        <p>example@example.com</p>
+                        <p><button class="about-button"><a href="{% url 'acerca-bio' %}">Contact</a></button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div>
+            <div>
+                <img src="">
+                Blog
+            </div>
+            <div>Compañía de Teatro</div>
+            <div>Nuestra Hisotría</div>
+            <div>Contacto</div>
+        </div> -->
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <!-- Scripts - About-Column  -->
+    <script>
+        var elements = document.getElementsByClassName("about-column");
+        function two() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "50%";  // IE10
+                elements[i].style.flex = "50%";
+            }
+        }
+    </script>
+{% endblock scripts %}
+
+

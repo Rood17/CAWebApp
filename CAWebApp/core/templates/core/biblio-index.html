@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Biblioteca Index{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/espacios/5.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h1>Bilbioteca Raquel Seone</h1>
+    <h4>Institución Teatral Independiente A.C.</h4>
+{% endblock banner-text %}
+
+<!-- Head Text -->
+{% block head-text %}
+    <p>Lorem ipsum, dolor sit amet consectetur
+                adipisicing elit. Fugiat nam, numquam
+                itaque dicta hic repudiandae nihil possimus
+                laudantium atque at libero cum iste odit eveniet
+                liquam debitis placeat dolores reprehenderit!</p>
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <div class="lista-biblio-container">
+        <div class="libro-container">
+            <img src="{% static 'core/img/biblioteca/actor.jpg' %}" />
+            <div class="libro-info">
+                <h1>Un Actor se Prepara</h1>
+                <h4>Constantin Stanislavski</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae officiis sapiente id itaque, ex, sunt dolorem repellat, nisi eos facilis rem. Cum quae tenetur sunt vitae ullam, labore architecto doloremque.</p>
+                <ul>
+                    <li>Etiquetas</li>
+                    <li>Etiquetas</li>
+                </ul>
+            </div>
+        </div>
+        <div class="libro-container">
+                <img src="{% static 'core/img/biblioteca/actor.jpg' %}" />
+                <div class="libro-info">
+                    <h1>Un Actor se Prepara</h1>
+                    <h4>Constantin Stanislavski</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae officiis sapiente id itaque, ex, sunt dolorem repellat, nisi eos facilis rem. Cum quae tenetur sunt vitae ullam, labore architecto doloremque.</p>
+                    <ul>
+                        <li>Etiquetas</li>
+                        <li>Etiquetas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="libro-container">
+                    <img src="{% static 'core/img/biblioteca/actor.jpg' %}" />
+                    <div class="libro-info">
+                        <h1>Un Actor se Prepara</h1>
+                        <h4>Constantin Stanislavski</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae officiis sapiente id itaque, ex, sunt dolorem repellat, nisi eos facilis rem. Cum quae tenetur sunt vitae ullam, labore architecto doloremque.</p>
+                        <ul>
+                            <li>Etiquetas</li>
+                            <li>Etiquetas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="libro-container">
+                        <img src="{% static 'core/img/biblioteca/actor.jpg' %}" />
+                        <div class="libro-info">
+                            <h1>Un Actor se Prepara</h1>
+                            <h4>Constantin Stanislavski</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae officiis sapiente id itaque, ex, sunt dolorem repellat, nisi eos facilis rem. Cum quae tenetur sunt vitae ullam, labore architecto doloremque.</p>
+                            <ul>
+                                <li>Etiquetas</li>
+                                <li>Etiquetas</li>
+                            </ul>
+                        </div>
+                    </div>
+    </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    
+{% endblock scripts %}

@@ -1,0 +1,414 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Galería{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/escena/3.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h1>Galería de Imágenes</h1>
+                <p>Contigo América</p>
+                <a>En Escena</a>
+                <spam> // </spam>
+                <a>Nuestros Espacios</a>
+                <spam> // </spam>
+                <a>Eventos</a>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #f8ec48;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+    <h1>En Escena</h1>
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <main>
+        <div class="item-a gal-img">
+            <img style="border: solid 1px" src="{% static 'core/img/galeria/escena/1.jpg' %}" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/2.jpg' %}" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+        <div class="item-b gal-img">
+            <img src="{% static 'core/img/galeria/escena/3.jpg' %}" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/4.jpg' %}" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
+        <div class="item-c gal-img">
+            <img src="{% static 'core/img/galeria/escena/5.jpg' %}" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/6.jpg' %}" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/7.jpg' %}" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+        </div>
+        <div class="item-d gal-img">
+            <img src="{% static 'core/img/galeria/escena/8.jpg' %}" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/9.jpg' %}" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/10.jpg' %}" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/11.jpg' %}" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/escena/12.jpg' %}" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+        </div>
+    </main>
+    <div style="" class="head-text">
+            <h1>Nuestros Espacios</h1>
+        </div>
+    <!-- Programar en python cada vez que se sume una foto se identifique en que grupo esta y dependiendo de eso
+    el programa le otorgará un valor de nuevo a cada currentslide. -->
+    <main>
+        <div class="item-a gal-img">
+            <img src="{% static 'core/img/galeria/espacios/1.jpg' %}" onclick="openModal();currentSlide(13)" 
+                 class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/espacios/2.jpg' %}" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+        </div>
+        <div class="item-b gal-img">
+            <img src="{% static 'core/img/galeria/espacios/3.jpg' %}" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/espacios/4.jpg' %}" onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+        </div>
+        <div class="item-c gal-img">
+            <img src="{% static 'core/img/galeria/espacios/5.jpg' %}" onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/espacios/6.jpg' %}" onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/espacios/7.jpg' %}" onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+        </div>
+        <div class="item-d gal-img">
+            <img src="{% static 'core/img/galeria/espacios/8.jpg' %}" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/espacios/9.jpg' %}" onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
+        </div>
+        <div class="gal-img">
+            <img src="{% static 'core/img/galeria/espacios/10.jpg' %}" onclick="openModal();currentSlide(22)" class="hover-shadow cursor">
+        </div>
+
+    </main>
+    <div style="" class="head-text">
+            <h1>Eventos</h1>
+        </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+                <div class="numbertext">1 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/1.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">2 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/2.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">3 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/3.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">4 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/4.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">5 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/5.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">6 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/6.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">7 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/7.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">8 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/8.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">9 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/9.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">10 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/10.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">11 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/11.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">12 / 12</div>
+                <img src="{% static 'core/img/galeria/escena/12.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <!-- Espacios -->
+            <div class="mySlides">
+                <div class="numbertext">1 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/1.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">2 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/2.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">3 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/3.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">4 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/4.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">5 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/5.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">6 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/6.jpg' %}" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">7 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/7.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">8 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/8.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">9 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/9.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">10 / 12</div>
+                <img src="{% static 'core/img/galeria/espacios/10.jpg' %}" style="width:100%" alt="holqq">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <!-- EN Escena -->
+            <div id="first-column-title"class="column-title">
+                <h3>En Escena</h3>
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/1.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(1)"
+                    alt="Nature and sunrise">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/2.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(2)"
+                    alt="Snow">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/3.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(3)"
+                    alt="Mountains and fjords">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/4.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(4)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/5.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(5)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/6.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(6)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/7.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(7)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/8.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(8)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/9.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(9)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/10.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(10)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/11.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(11)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/escena/12.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(12)"
+                    alt="Northern Lights">
+            </div>
+            
+
+            <!-- Espacios -->
+            <div class="column-title">
+                <h3>Espacios</h3>
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/1.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(13)"
+                    alt="Nature and sunrise">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/2.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(14)"
+                    alt="Snow">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/3.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(15)"
+                    alt="Mountains and fjords">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/4.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(16)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/5.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(17)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/6.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(18)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/7.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(19)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/8.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(20)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/9.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(21)"
+                    alt="Northern Lights">
+            </div>
+            <div class="column img-modal">
+                <img class="demo cursor" src="{% static 'core/img/galeria/espacios/10.jpg' %}" style="width:100%" 
+                     onclick="currentSlide(22)"
+                    alt="Northern Lights">
+            </div>
+
+            <!-- Eventos -->
+            <div class="column-title">
+                <h3>Eventos</h3>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    <!-- LightBox -->
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+{% endblock scripts %}
+
+
+

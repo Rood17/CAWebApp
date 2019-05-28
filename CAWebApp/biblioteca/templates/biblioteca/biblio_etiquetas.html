@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Biblioteca Index{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/espacios/5.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h1>Bilbioteca Raquel Seone</h1>
+    <h4>Institución Teatral Independiente A.C.</h4>
+{% endblock banner-text %}
+
+<!-- Head Text -->
+{% block head-text %}
+    <p class="blog-text"> "En este mundo globalizado, neoliberal, de una economía salvaje, en el que el ser humano ha sido descategorizado, convertido en mercancía, seguimos conscientes y empecinados en priorizar los principios que nos dieron vida, en hacer un teatro independiente, ahondar en nuestras raíces y en estrechar los vínculos con nuestra América Latina, para reafirmarnos humana y creativamente." Raquel Seoane.<br>www.proceso.com.mx, 27 de Marzo de 2012</p>
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <div class="lista-biblio-container">
+        <div class="query-content">
+            <a style="cursor:default; color:#E0DFDD;">[ {{etiqueta}} ]</a>
+        </div>
+        <hr>
+
+        {% for i in lista %}
+        <div class="libro-container">
+            <img src="{{i.imagen.url}}" />
+            <div class="libro-info">
+                <h1>{{i.titulo}}</h1>
+                <h4>{{i.autor}}</h4>
+                <p>{{i.descripcion | safe}}</p>
+                {% for category in i.categorias.all %}
+                    <a href="{% url 'categorias_biblio' category.id %}" class="link">[ {{category.name}} ]</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        
+    
+    </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    
+{% endblock scripts %}

@@ -1,0 +1,371 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título -->
+{% block title %}Cartelera{% endblock title %}
+
+<!-- Head -->
+{% block head %}
+<!-- cartelera -->
+<link href="{% static 'core/css/datepicker/glDatePicker.flatwhite.css' %}" rel="stylesheet">
+<link href="{% static 'core/css/datepicker/glDatePicker.default.css' %}" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="{% static 'core/js/datepicker/glDatePicker.js' %}" type="text/javascript"></script>
+<script src="{% static 'core/js/datepicker/glDatePicker.min.js' %}" type="text/javascript"></script>
+{% endblock head %}
+
+<!-- Banner Img -->
+{% block banner-img %}
+background-image: url('{% static 'core/img/cartelera/banner-2.jpg' %}');
+width: 100%;
+height: 308px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position-y: 22%;
+position: relative;
+{% endblock banner-img %}
+
+<!-- Banner Text -->
+{% block banner-text-style %}
+left: 50%;
+{% endblock %}
+{% block banner-text %}
+<h5>CARTELERA</h5>
+<p>Foro Contigo América</p>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+background-color: #d64223;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+<h1>{{mes}}{{año}}</h1>
+{% endblock head-text %}
+
+<!-- Contenido -->
+{% block content %}
+<div class="cartelera-container">
+	<div class="cartelera-header">
+		<div class="obra-container">
+			{% for obra in hero_func %}
+			<div class="obra-principal" style="
+								background-image: url('{{obra.imagenPortada.url}}');
+								width: 100%;
+								height: 500px;
+								background-repeat: no-repeat;
+								background-size: cover;
+								background-position-y: 22%;">
+				<div class="obra-content">
+					<div class="cartelera-titulo">
+						<h2>{{obra.titulo}}</h2>
+						{% if obra.autorydir %}
+						<h4>Autor y Dirección | {{obra.autorydir}}</h4>
+						{% endif %}
+						{% if obra.director %}
+						<h4>Dirección | {{obra.director}}</h4>
+						{% endif %}
+					</div>
+					<div class="cartelera-info">
+						<div class="cart-info cart-dia inline-block">
+							<h3>
+								{% if not hoy %}
+								Próxima Obra |
+								{% else %}
+								Hoy |
+								{% endif %}
+								
+								{% if dst %}
+									{{search_day}} {{mes}}
+								{% else %}
+									{% for dia in obra.diaSem.all %}
+									{{dia.diaSem}} {{search_day}}
+									{% endfor %}
+								{% endif %}
+								
+								
+							</h3>
+						</div>
+						<div class="cart-info cart-hora inline-block">
+							<h3>{{obra.hora}} hrs</h3>
+							<h3> </h3>
+						</div>
+						<div class="cart-info cart-genero inline-block">
+							<p>
+								{% for i in obra.etiquetasCartelera.all %}
+									{{i.name}}
+								{% endfor %}
+							</p>
+						</div>
+					</div>
+					<div class="cart-info cartelera-recomendaciones">
+						<h3><a href="{% url 'obra' obra.titulo.id %}">Sinopsis</a> | <a href="">Recomendaciones (7)</a> </h3>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="app-cartelera-container">
+		{% for obra in funciones %}
+		<div class="app-cartelera" style="
+		background-image: url('{{obra.imagenPortada.url}}');
+		height: 370px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position-y: 22%;">
+			<div class="obra-content">
+				<div class="cartelera-titulo-b">
+					<h4>{{obra.titulo}}</h4>
+					{% if obra.autorydir %}
+					<h6>Autor y Dirección | {{obra.autorydir}}</h6>
+					{% endif %}
+					{% if obra.director %}
+					<h6>Dirección | {{obra.director}}</h6>
+					{% endif %}
+
+				</div>
+				<div class="cartelera-info-b">
+					<div class="cart-info-b cart-dia inline-block">
+						<h3>{% for dia in obra.diaSem.all %}
+								{{dia.diaSem}} | 
+								{% endfor %} 
+							{% for dia in obra.fechaCal.all %}
+								{{dia.fechaCa}}
+								{% endfor %} 
+							</h3>
+						<h3></h3>
+					</div>
+					<div class="cart-info-b cart-hora inline-block">
+						<h3>{{obra.hora}} hrs</h3>
+						<h3> </h3>
+					</div>
+
+
+
+
+				</div>
+				<div class="cart-info cart-info-2 cartelera-recomendaciones">
+					<h3><a href="{% url 'obra' obra.titulo.id %}">Sinopsis</a> | <a href="">Recomendaciones (7)</a> </h3>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+	<div class="cartelera-ul-container">
+		<!-- App Cartelera -->
+		{% if program_espe %}
+		<h1>PROGRAMACIÓN ESPECIAL</h1>
+			{% if hoyE %}
+			<p>Presentandose <span class="primary-color">Hoy</span> - {{espe.titulo}}</p>
+			{% else %}
+			{% for i in prox_ev %}
+				<p>Proxima Evento <span class="primary-color"></span> - 
+					{{i.titulo}} {{espe_day}} {{mes}}
+				</p>
+			{% endfor %}
+			{% endif %}
+		{% endif %}
+		
+		{% if program_espe %}
+		{% for espe in program_espe %}
+			<ul class="clearfix-cartelera">
+				<li class="cartelera-br">
+					<a>
+						<div class="cartelera-main-header" style="
+						background-image: url('{{espe.imagenPortada.url}}');
+						height: ;
+						background-repeat: no-repeat;
+						background-size: ;
+						background-position-y: 70%;"">
+							<h4>{% for i in espe.fechaCal.all %}{{i.fechaCa}} {% endfor %} / {{mes}} / {{año}}</h4>
+							<h3>
+								{% for i in espe.etiquetasCartelera.all %}
+									{{i.name}}
+								{% endfor %}
+							</h3>
+						</div>
+						<div class="cartelera-main-footer">
+							<h2>{{espe.titulo}}</h2>
+							<h3>Una Exposición de {{espe.autor}}</h3>
+							<h4>Ignaguración - {% for i in espe.fechaCal.all %}{{i.fechaCa}}{% endfor %} de {{mes}} del {{año}} </h4>
+							<p> Entrada libre | <a href="{% url 'obra' espe.titulo.id %}">Más Info</a> </p>
+
+						</div>
+					</a>
+				</li>
+			</ul>
+		{% endfor %}
+		{% endif %}
+	</div>	
+</div>
+<div class="filtros-cartelera inline-flex">
+	<div class="calendar-container">
+		<input type="text" id="mydate" gldp-id="mydate" />
+		<div gldp-el="mydate" id="example1" style="width:250px; height:300px; 
+							 top:0px; left:100px;">
+		</div>
+	</div>
+	<!-- Filtros -->
+	<!-- <div id="myBtnContainer">
+
+		<button class="btn active" onclick="filterSelection('all')">Mostrar Todas las obras</button>
+		<h3>Géneros</h3>
+		{% for i in cartelera %}
+			{% for filtro in i.etiquetasCartelera.all %}
+				<button class="btn" onclick="filterSelection('{{filtro.name}}')"> {{filtro.name}}</button>
+			{% endfor%}
+		{% endfor %}
+		<h3>Duración</h3>
+		{% for i in cartelera %}
+			<button class="btn" onclick="filterSelection('{{i.duracion}}')"> {{i.duracion}}</button>
+		{% endfor %}
+	</div> -->
+</div>
+
+<div class="clearfix"></div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+<!-- Calendario -->
+<script type="text/javascript">
+	$(window).load(function () {
+		$('input').glDatePicker({
+			calendarOffset: { x: 0, y: 0 },
+
+			showAlways: true,
+			selectableYears: [{{año}}],
+			selectableMonths: [{{mes_cal}}, {{mes_cal_2}}],
+			cssName: 'flatwhite',
+			allowMonthSelect: true,
+			
+			// Investigar útil
+			specialDates: [
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_1}}),
+					data: {{dci_1}},
+					repeatYear: false,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_2}}),
+					data: {{dci_2}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_3}}),
+					data: {{dci_3}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_4}}),
+					data: {{dci_4}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_5}}),
+					data: {{dci_5}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_6}}),
+					data: {{dci_6}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_7}}),
+					data: {{dci_7}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_8}}),
+					data: {{dci_8}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_9}}),
+					data: {{dci_9}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, 0),
+					data: { message: '' },
+					repeatYear: true,
+					cssClass: 'sinclase'
+				},
+				
+				
+			],
+			monthNames: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+			dowNames: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+
+			onClick: function (target, cell, date, data) {
+				target.val(date.getFullYear() + ' - ' +
+					date.getMonth() + ' -  ' +
+					date.getDate());
+
+				if (data != null) {
+					window.location.href = "http://127.0.0.1:8000/cartelera/obra/" + data + "/";
+				}
+
+			},
+		});
+	});
+</script>
+<!-- Filtros -->
+<script>
+	filterSelection("all")
+	function filterSelection(c) {
+		var x, i;
+		x = document.getElementsByClassName("filter");
+		if (c == "all") c = "";
+		for (i = 0; i < x.length; i++) {
+			w3RemoveClass(x[i], "show");
+			if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+		}
+	}
+
+	function w3AddClass(element, name) {
+		var i, arr1, arr2;
+		arr1 = element.className.split(" ");
+		arr2 = name.split(" ");
+		for (i = 0; i < arr2.length; i++) {
+			if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+		}
+	}
+
+	function w3RemoveClass(element, name) {
+		var i, arr1, arr2;
+		arr1 = element.className.split(" ");
+		arr2 = name.split(" ");
+		for (i = 0; i < arr2.length; i++) {
+			while (arr1.indexOf(arr2[i]) > -1) {
+				arr1.splice(arr1.indexOf(arr2[i]), 1);
+			}
+		}
+		element.className = arr1.join(" ");
+	}
+
+	// Add active class to the current button (highlight it)
+	var btnContainer = document.getElementById("myBtnContainer");
+	var btns = btnContainer.getElementsByClassName("btn");
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener("click", function () {
+			var current = document.getElementsByClassName("active");
+			current[0].className = current[0].className.replace(" active", "");
+			this.className += " active";
+		});
+	}
+</script>
+{% endblock scripts %}

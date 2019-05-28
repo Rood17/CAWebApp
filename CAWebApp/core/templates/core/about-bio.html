@@ -1,0 +1,117 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Nombre del comañero{% endblock title %}
+
+<!-- Body tag -->
+{% block body %}
+onload="scrollFunction()";
+{% endblock %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/cartelera/banner-2.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+{% endblock banner-text %}
+
+{% block banner-text-style %}
+left:50%;
+{% endblock %}
+
+{% block bio-perfil-img %}
+<img id="about-bio-img" src='{% static "core/img/about/grupo_willi.jpg" %}' />
+{% endblock %}
+
+<!-- Head Text -->
+{% block fecha-bio %}
+<div class="datos-bio">
+    <div class="">
+        <h1>William Sayago</h1>
+    </div>
+    <div class="">
+        <h4 title=""> Encargado de Programación del Foro </h2>
+    </div>
+</div>
+{% endblock %}
+
+<!--  Contenido -->
+{% block content %}
+
+<div class="about-bio-container">
+    <div class="presentacion-imgs">
+        <img src='{% static "core/img/galeria/escena/7.jpg" %}' />
+    </div>
+    <div class="presentacion-info">
+        <ul>
+            <li>
+                <h3>Información y Links</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ad odio culpa debitis delectus
+                    corrupti consectetur reiciendis, architecto voluptate officia facilis aperiam. Dolore voluptates
+                    maxime aliquam eaque nihil atque ut.
+                </p>
+            </li>
+        </ul>
+        <div class="kit-contacto bio-redes">
+            <a><i class="fab fa-facebook-f"></i></a>
+            <a><i class="fab fa-twitter"></i></a>
+            <a><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+<script>
+    filterRecomendaciones("all")
+    function filterRecomendaciones(c) {
+        var x, i;
+        x = document.getElementsByClassName("recomenDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show-recomen");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show-recomen");
+        }
+    }
+
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+        }
+    }
+
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("recomendacionesBtn");
+    var btns = btnContainer.getElementsByClassName("r-tag");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+
+{% endblock scripts %}

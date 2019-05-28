@@ -1,0 +1,152 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Contacto{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/contacto/banner.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h5>Contacto</h5>
+    <p>Héchanos una llamadita no seas malo</p>
+    
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #23b7d6;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+<div class="info-contact-list">
+                        <h1 class="dir-contact">Arizona <span>#</span>156, Col. Nápoles,<br> 03810 CDMX, México<span>.</span></h1>
+                        <p>Estaciones más cercanas:</p>
+                        <p><span>Metro: </span>"San Pedro de los pinos" (Linea 7).</p>
+                        <p><span>MetroBus: </span>estación "Polyforum".</p>
+                        
+                    </div>
+{% endblock head-text %}
+
+<!--  Contenido -->
+{% block content %}
+    <div class="contact">
+        <div class="info-contact wrap">
+            <div class="container-info-contact">
+                <div class="contact-info-3">
+
+                    <div class="directorio-contact inline-block">
+                        <h2 class="leave">DIRECTORIO</h2>
+                        <div class="clear"></div>
+                        
+                        <ul class="contact-info-list">
+                            <li><p><span>Administración: </span>Liliana Guido.</p></li>
+                            <li><p><span>Promoción: </span>Martha Tapia.</p></li>
+                            <li><p><span>Programación: </span>Williams Sayago.</p></li>
+                            <li><p><span>Responsable del Foro y Redes Sociales: </span> Héctor Yaza.</p></li>
+                            <li><p><span>Gestión de Proyectos: </span>Patricia Chavero.</p></li>
+                            <li><p><span>Desarrollo WEB: </span>Rodrigo Mora.</p></li>
+                                <li><i class='fas fa-phone'></i><a href="callto://01555433865" title="Llamar">01
+                                            (55)75 89 09 17</a> y <a href="callto://01555433865" title="Llamar">(55)55
+                                            43 38 65</a>
+                                </li>
+                                <li><a href="mailto:contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'>contigoamerica@yahoo.com.mx</i></a>
+                                </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-6 inline-block contact-form pb-lg-3 pb-2">
+                        {% if 'ok' in request.GET %}
+                        <p style="color:rgb(186, 241, 164); font-size:15px;" >
+                        <b>Su mensaje ha sido enviado correctamente, en breve nos pondremos en contacto.</b></p>
+                        {% endif %}  
+                        <form action="#" method="post">
+                        {% csrf_token %}
+                            <div class="form-group contact-forms">
+                                <label>Nombre *</label>
+                                <div class="">
+                                {{form.name}}
+                                </div>
+                                {{form.name.errors}}
+                            </div>
+                            <div class="form-group contact-forms">
+                                <label>Email *</label>
+                                <div class="input-group">
+                                {{form.email}}
+                                </div>
+                            {{form.email.errors}}
+                            </div>
+                            <div class="form-group contact-forms">
+                                <label>Mensaje *</label>
+                                <div class="input-group">
+                                {{form.content}}
+                                </div>
+                            {{form.content.errors}}
+                            </div>
+                            <button type="submit" class="btn sent-butnn btn-lg">Send</button>
+                        </form>
+                    </div>
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="googlemaps googlecontacto">
+            <div class="contenedor">
+                <div class="popup-master">
+                    <div class="popup popup-contact" onclick="myFunction()"><a>Hazme Click!</a><span class="popuptext-contacto"
+                            id="myPopup">
+                            <h3 style="color:black; padding-top:20px; font-size:30px;">¿ESPERAS A GODOT?</h3>
+                            <p style="color:#328fcd; padding:15px;">Ven y conoce más de nuevas propuestas de TEATRO
+                                INDEPENDIETNE.</p>
+                        </span>
+                        <script>
+                            // When the user clicks on <div>, open the popup
+                            function myFunction() {
+                                var popup = document.getElementById("myPopup");
+                                popup.classList.toggle("show");
+                            }
+                        </script>
+                    </div>
+                    <a href="http://maps.google.com.mx/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=Foro+contigo+america&amp;aq=&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=19.392763,-99.18057&amp;spn=0.080313,0.308647&amp;z=12&amp;iwloc=AMERICA&amp;layer=c&amp;cbll=19.39285,-99.180622&amp;panoid=dEwlnjud7l_ucQKoXJbo3w&amp;cbp=11,118.46,,0,24.43&amp;cid=6788477392664741161"
+                        target="_blank" style="color:#FFF;text-align:left">Ampliar Mapa</a>
+                </div>
+
+                <div id="map" style="width:100%;height:500px"></div>
+
+                <script>
+                    function myMap() {
+                        var mapCanvas = document.getElementById("map");
+                        var myCenter = new google.maps.LatLng(19.392806, -99.180565);
+                        var mapOptions = { center: myCenter, zoom: 17 };
+                        var map = new google.maps.Map(mapCanvas, mapOptions);
+                        var marker = new google.maps.Marker({
+                            position: myCenter,
+                            animation: google.maps.Animation.BOUNCE
+                        });
+                        marker.setMap(map);
+                    }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaf5e9p-4iWW1Uf2g_nz0DAheJitFfOjw&callback=myMap"></script>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    
+{% endblock scripts %}
+
+    

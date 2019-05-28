@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- Load static -->
+	{% load static %}
+	<!-- Meta -->
+	<meta content="text/html charset=iso-8859-1 http-equiv=Content-Type">
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+	<meta http-equiv="Content-Type" content="application/json" charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+	<!-- Title -->
+	<title>Contigo América || Intro</title>
+	<!-- Estilos -->
+	<link href="{% static 'core/css/stylesca.css' %}" rel="stylesheet">
+	<!-- Links Icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body class="body-intro">
+	<div class="parallax-intro" style="background-image: 
+	linear-gradient(rgba(0, 0, 0, 0.6), 
+	rgba(0, 0, 0, 0.5)),
+	 url('{% static 'core/img/index/hola.jpg' %}'); ">
+		<div class="intro-hero-image">
+			<div class="intro-hero-text">
+				<header class="header-intro">
+					<div class="intro-anim-container">
+						<div class="intro-anim-content">
+							<a href="{% url 'historia' %}" ><img class="logo-intro" src="{% static 'core/img/Logos/contigo_america_fondo_blanco.png' %}" /></a>
+							<h1>Contigo América</h1>
+							<h3>Institución Teatral Independiente</h3>
+						</div>
+					</div>
+				</header>
+
+			</div>
+		</div>
+	</div>
+	<footer class="footer-intro">
+		<div class="nav-intro-menu">
+			<div class="nav-intro">
+				<button title="Menú Foro" class="nav-intro-btn"><i class="material-icons icons-intro">menu</i>  Nuestro Foro</button>
+				<div id="foroMenu" class="nav-intro-content">
+					<div id="fix-menu-intro-top-foro" class="menu-intro-top">
+						<div class="inline-block intro-box intro-cartelera-content">
+							<img src="{% static 'core/img/foro/cartelera/Danieltatita.jpg' %}" />
+							<div class="principal-intro-link">
+								
+							</div>
+							<div id="foroColor-4" class="second-intro-links">
+								<a href="{% url 'cartelera' %}">Cartelera</a>
+								<a href="{% url 'compañia' %}">Compañia de Contigo América</a>
+								<a href="{% url 'cartelera' %}">Calendario</a>
+							</div>
+						</div>
+						<div class="inline-block intro-box intro-foro-content">
+							<img src="{% static 'core/img/foro/espacios/biblio.jpg' %}" />
+							<div class="principal-intro-link">
+								
+							</div>
+							<div id="foroColor-2" class="second-intro-links">
+								<a href="{% url 'foro' %}">Foro</a>
+								<a href="{% url 'foro' %}">Presenta tu obra</a>
+								<a href="{% url 'foro' %}">Renta un espacio</a>
+							</div>
+						</div>
+						<div class="inline-block intro-box intro-faqs-content">
+							<img src="{% static 'core/img/foro/espacios/fachada.jpg' %}" />
+							<div class="principal-intro-link">
+								
+							</div>
+							<div id="foroColor-3" class="second-intro-links">
+								<a href="{% url 'contacto' %}">Ubicación</a>
+								<a>Arizona #156, col. Nápoles, CDMX.</a>
+								<a href="{% url 'contacto' %}">Indicaciones</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-intro-bottom">
+						<div class="float-left intro-contact-links">
+
+							<div class="inline-block intro-contact-sublinks">
+								<a href="{% url 'acerca' %}">Acerca</a>
+								<a href="{% url 'contacto' %}">Directorio</a>
+								<a href="{% url 'contacto' %}">Contacto</a>
+							</div>
+							<div class="intro-contact-sublinks">
+								<a><i class='fas fa-envelope'></i> - contigoamerica@yahoo.com.mx</a>
+								<a><i class='fas fa-phone'></i>
+									<span> - </span><a>(55) 75 89 09 17</a>
+									<span> / </span><a>(55) 75 89 09 17</a>
+								</a>
+							</div>
+						</div>
+						<div class="float-right intro-general-links">
+							<div class="nav-intro-icons">
+								<a href="" ><i class="fab fa-facebook-f"></i></a>
+								<a href="" ><i class="fab fa-twitter"></i></a>
+								<a href="" ><i class="fab fa-instagram"></i></a>
+							</div>
+							<a href="{% url 'blog' %}" class="inline-block">Blog</a>
+							<a href="{% url 'faqs' %}" class="inline-block">Faqs</a>
+							<a href="{% url 'galeria' %}" class="inline-block">Galería</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			 	<div class="nav-intro">
+				<button title="Menú Institución" class="nav-intro-btn"><i class="material-icons icons-intro">menu</i>  Institución</button>
+				<div id="instMenu" class="nav-intro-content">
+					<div class="menu-intro-top">
+						<div class="inline-block intro-box intro-c-content">
+							<img src="{% static 'core/img/inst/compania/grupo.jpg' %}" />
+							<div class="principal-intro-link">
+								
+							</div>
+							<div id="foroColor-5" class="second-intro-links">
+								<a href="{% url 'compañia' %}">Compañía</a>
+								<a href="{% url 'acerca' %}">Grupo</a>
+								<a href="{% url 'compañia' %}">Repertorio</a>
+							</div>
+						</div>
+						<div class="inline-block intro-box intro-historia-content">
+							<img src="{% static 'core/img/inst/historia/blas.jpg' %}" />
+							<div class="principal-intro-link">
+								
+							</div>
+							<div id="foroColor-6" class="second-intro-links">
+								<a href="{% url 'historia' %}">Historia</a>
+								<a href="{% url 'historia' %}">Línea del tiempo</a>
+								<a href="{% url 'historia' %}">Personajes</a>
+							</div>
+						</div>
+						<div class="inline-block intro-box intro-ints-content">
+							<img src="{% static 'core/img/inst/quehacer/4.jpg' %}" />
+							<div class="principal-intro-link">
+								
+							</div>
+							<div id="foroColor-7" class="second-intro-links">
+								<a href="{% url 'historia' %}">Institución</a>
+								<a href="{% url 'biblioteca' %}">Biblioteca</a>
+								<a href="{% url 'historia' %}">Quehacer teatral</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-intro-bottom">
+						<div class="float-left intro-contact-links">
+
+							<div class="inline-block intro-contact-sublinks">
+								<a href="{% url 'acerca' %}">Acerca</a>
+								<a href="{% url 'contacto' %}">Directorio</a>
+								<a href="{% url 'contacto' %}">Contacto</a>
+							</div>
+							<div class="inline-blo intro-contact-sublinks">	
+								<a><i class='fas fa-envelope'></i><span> - </span> contigoamerica@yahoo.com.mx</a>
+								<a><i class='fas fa-phone'></i>
+									<span> - </span><a>(55) 75 89 09 17</a>
+									<span> / </span><a>(55) 75 89 09 17</a>
+								</a>
+							</div>
+						</div>
+						<div class="float-right intro-general-links">
+							<div class="nav-intro-icons">
+								<a href="" ><i class="fab fa-facebook-f"></i></a>
+								<a href="" ><i class="fab fa-twitter"></i></a>
+								<a href="" ><i class="fab fa-instagram"></i></a>
+							</div>
+							<a href="{% url 'blog' %}" class="inline-block">Blog</a>
+							<a href="{% url 'faqs' %}" class="inline-block">Faqs</a>
+							<a href="{% url 'galeria' %}" class="inline-block">Galería</a>
+
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</footer>
+</body>
+<!-- Scripts -->
+<script>
+		$(document).ready(function(){
+		 
+		  $("#foroColor-2").hover(function(){
+			$('#foroMenu').css("background-color", "#f8ec48");
+			});
+		  $("#foroColor-3").hover(function(){
+			$('#foroMenu').css("background-color", "#23b7d6");
+			});
+		  $("#foroColor-4").hover(function(){
+			$('#foroMenu').css("background-color", "#d64223");
+			});
+		  $("#foroColor-5").hover(function(){
+			$('#instMenu').css("background-color", "#d64223");
+			});
+		  $("#foroColor-6").hover(function(){
+			$('#instMenu').css("background-color", "#f8ec48");
+			});
+		  $("#foroColor-7").hover(function(){
+			$('#instMenu').css("background-color", "#23b7d6");
+			});
+		});
+		</script>
+
+</html>

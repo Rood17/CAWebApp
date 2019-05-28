@@ -1,0 +1,300 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}Nombre de la Obra{% endblock title %}
+
+<!-- Body tag -->
+{% block body %}
+onload="scrollFunction()";
+{% endblock %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+background-image: url('{% static 'core/img/cartelera/banner-2.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+<h1>Título de la Obra</h1>
+<h3>Autor y Dirección</h3>
+{% endblock banner-text %}
+
+{% block banner-text-style %}
+left:50%;
+{% endblock %}
+
+{% block bio-perfil-img %}
+<img src='{% static "core/img/presentaciones/dalomismo.jpg" %}' />
+{% endblock %}
+
+<!-- Head Text -->
+{% block fecha-bio %}
+<div class="fecha-hora">
+    <div class="dia-bio">
+        <h1>Ma | 07 Jul</h1>
+    </div>
+    <div class="hora-bio">
+        <h2 title="Se recomienda llegar con 15 min de anticipación"> 21:00 hrs </h2>
+    </div>
+</div>
+<div class="donativo">
+    <div>
+        <h3 title="Así es, puedes dar lo que este en tu voluntaa :)">Donativo</h3>
+    </div>
+    <div>
+        <h4 title="Se sugieren $150 para solventar gastos, comida y chelas...">Se sugieren $ 150 pesitos.</h4>
+    </div>
+</div>
+{% endblock %}
+
+<!--  Contenido -->
+{% block content %}
+
+<div class="presentacion-container">
+    <div class="presentacion-imgs">
+        <img src='{% static "core/img/presentaciones/dalomismo.jpg" %}' />
+    </div>
+    <div class="presentacion-info">
+        <ul>
+            <li>
+                <h3>Sinopsis</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ad odio culpa debitis delectus
+                    corrupti consectetur reiciendis, architecto voluptate officia facilis aperiam. Dolore voluptates
+                    maxime aliquam eaque nihil atque ut.
+                </p>
+            </li>
+            <li>
+                <h4>Agrupación</h4>
+                <p>Dalomismo Teatro</p>
+            </li>
+            <li>
+                <h4>Reparto</h4>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus iste consectetur harum dolorem,
+                    nostrum odit modi corporis eaque. Itaque ex nobis necessitatibus quaerat autem. Consectetur quo
+                    illo ad delectus qui!</p>
+            </li>
+            <li>
+                <p>
+                    <h4>Género</h4> - ectus qui!
+                </p>
+            </li>
+            <li>
+                <p>
+                    <h4>Público</h4> - ectus qui!
+                </p>
+            </li>
+            <li>
+                <p>
+                    <h4>Duración</h4> - ectus qui!
+                </p>
+            </li>
+            <li>
+                <p>
+                    <h4>Contacto</h4> - ectus qui!
+                </p>
+            </li>
+        </ul>
+        <div class="kit-contacto bio-redes">
+            <a><i class="fab fa-facebook-f"></i></a>
+            <a><i class="fab fa-twitter"></i></a>
+            <a><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="reparto">
+        <h2>Reparto | Compañía</h2>
+        <div class="reparto-gal">
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/2.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/3.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/4.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/5.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/9.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/2.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/3.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/4.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/5.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/9.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/2.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+            <div class="bio-img-container">
+                <img src="{% static 'core/img/galeria/escena/3.jpg'  %}" alt="Avatar" class="bio-image">
+                <div class="bio-img-overlay">
+                    <div class="bio-img-text">Hello World</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="recomendaciones">
+        <h2>Recomendaciones - (4)</h2>
+        <div id="recomendacionesBtn">
+            <button class="r-tag active" onclick="filterRecomendaciones('all')"> Show all</button>
+            <button class="r-tag" onclick="filterRecomendaciones('teatro')"> Dios la mejor</button>
+            <button class="r-tag" onclick="filterRecomendaciones('danza')"> Muy buena</button>
+            <button class="r-tag" onclick="filterRecomendaciones('música')"> Divertida</button>
+            <button class="r-tag" onclick="filterRecomendaciones('circo')"> Increíble</button>
+        </div>
+
+        <div class="recomendaciones-container">
+            <div class="recomenDiv teatro">
+                <h3>Laura</h3>
+                <h4>31 años</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Architecto voluptatem, nam error voluptatibus culpa placeat hic, 
+                    quasi, quas ipsa fuga quidem officiis ipsum animi? Sed ipsum dolo
+                    ribus blanditiis aspernatur placeat.</p>
+            </div>
+            <div class="recomenDiv teatro danza">
+                    <h3>Laura</h3>
+                    <h4>31 años</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Architecto voluptatem, nam error voluptatibus culpa placeat hic, 
+                        quasi, quas ipsa fuga quidem officiis ipsum animi? Sed ipsum dolo
+                        ribus blanditiis aspernatur placeat.</p>
+            </div>
+            <div class="recomenDiv música">
+                    <h3>Laura</h3>
+                    <h4>31 años</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Architecto voluptatem, nam error voluptatibus culpa placeat hic, 
+                        quasi, quas ipsa fuga quidem officiis ipsum animi? Sed ipsum dolo
+                        ribus blanditiis aspernatur placeat.</p>
+            </div>
+            <div class="recomenDiv música circo">
+                    <h3>Laura</h3>
+                    <h4>31 años</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Architecto voluptatem, nam error voluptatibus culpa placeat hic, 
+                        quasi, quas ipsa fuga quidem officiis ipsum animi? Sed ipsum dolo
+                        ribus blanditiis aspernatur placeat.</p>
+            </div>
+            <div class="recomenDiv música circo">
+                    <h3>Laura</h3>
+                    <h4>31 años</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Architecto voluptatem, nam error voluptatibus culpa placeat hic, 
+                        quasi, quas ipsa fuga quidem officiis ipsum animi? Sed ipsum dolo
+                        ribus blanditiis aspernatur placeat.</p>
+            </div>
+            <div class="recomenDiv música">
+                    <h3>Laura</h3>
+                    <h4>31 años</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Architecto voluptatem, nam error voluptatibus culpa placeat hic, 
+                        quasi, quas ipsa fuga quidem officiis ipsum animi? Sed ipsum dolo
+                        ribus blanditiis aspernatur placeat.</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="clearfix"></div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+<script>
+    filterRecomendaciones("all")
+    function filterRecomendaciones(c) {
+        var x, i;
+        x = document.getElementsByClassName("recomenDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show-recomen");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show-recomen");
+        }
+    }
+
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+        }
+    }
+
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("recomendacionesBtn");
+    var btns = btnContainer.getElementsByClassName("r-tag");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+
+{% endblock scripts %}

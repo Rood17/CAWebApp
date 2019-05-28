@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- Load Static -->
+	{% load static %}
+	<!-- Meta -->
+	<meta content="text/html charset=iso-8859-1 http-equiv=Content-Type">
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+	<meta http-equiv="Content-Type" content="application/json" charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+	<!-- Title -->
+	<title>Contigo América || {% block title %}{% endblock title %}</title>
+	<!-- Estilos -->
+	<link href="{% static 'core/css/stylesca.css' %}" rel="stylesheet">
+	<!-- Fuentes -->
+	<link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700|Sree+Krushnadevaraya|Tinos:400,400i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gudea:400,400i,700|Karla:400,400i,700,700i|Lato:400,400i,700,700i,900" rel="stylesheet">
+	<!-- Links Icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- jQuerry -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Block Head -->
+	{% block head %}{% endblock head %}
+</head>
+
+
+<body class="" {% block body %}{% endblock %} >
+	{% block biblio %}{% endblock biblio %}
+
+	{% if request.path != '/biblioteca/' %}
+	<nav id="navbar">
+		<div class="base-logo" id="base-logo">
+			<a href="{% url 'index' %}"><img id="base-logo-img" src="{% static 'core/img/logos/contigo_america_fondo_blanco.png' %}" /></a>
+		</div>
+		<div id="base-brand" class="inline-block base-brand">
+			<h1 id="base-brand-h1">Contigo América</h1>
+			<h4 id="base-brand-h4">Institución Teatral Independiente A.C.</h4>
+		</div>
+		<div id="base-menu" class="base-menu">
+			<div class="inline-block base-menu-foro base-subnav-menu">
+				<button title="Menú Foro" class="subnavbtn"><i class="fa fa-caret-down"></i>
+					Nuestro Foro
+				</button>
+				<div class="subnav-content">
+					<div class="subnav-sub">
+						<a class="{% if request.path == '/cartelera/' %}active{% endif %}" href="{% url 'cartelera' %}">Cartelera </a><span
+						 class="menu-slide"> // </span>
+						<a class="{% if request.path == '/acerca/' %}active{% endif %}" href="{% url 'acerca' %}">Acerca </a><span class="menu-slide">
+							// </span>
+						<a class="{% if request.path == '/convocatorias/' %}active{% endif %}" href="{% url 'foro' %}">Nuestros Espacios </a><span class="menu-slide">
+						<!--	// </span>
+						<a class="{% if request.path == '/rentas/' %}active{% endif %}" href="{% url 'foro' %}">Rentas </a><span class="menu-slide">--> //
+						</span>
+						<a class="{% if request.path == '/faqs/' %}active{% endif %}" href="{% url 'faqs' %}">Faqs</a>
+					</div>
+					<div class="subnav-links-generales">
+						<a class="{% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}">Blog </a><span class="menu-slide">
+							* </span>
+						<a class="{% if request.path == '/galeria/' %}active{% endif %}" href="{% url 'galeria' %}">Galería </a><span
+						 class="menu-slide"> * </span>
+						<a class="{% if request.path == '/contacto/' %}active{% endif %}" href="{% url 'contacto' %}">Contacto </a>
+					</div>
+				</div>
+			</div>
+
+			<div class="inline-block base-menu-inst base-subnav-menu">
+				<button class="subnavbtn">Institución <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="subnav-content">
+					<div class="subnav-sub">
+						<a class="{% if request.path == '/historia/' %}active{% endif %}" href="{% url 'historia' %}">Historia </a><span
+						 class="menu-slide"> // </span>
+						<a class="{% if request.path == '/compañia/' %}active{% endif %}" href="{% url 'compañia' %}">Compañia </a><span
+						 class="menu-slide"> // </span>
+						<a class="{% if request.path == '/compañia/' %}active{% endif %}" href="{% url 'compañia' %}">Repertorio </a><span
+						 class="menu-slide"> // </span>
+						<a class="{% if request.path == '/biblioteca/' %}active{% endif %}" href="{% url 'biblioteca' %}">Biblioteca </a>
+					</div>
+					<div class="subnav-links-generales">
+						<a class="{% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}">Blog </a><span class="menu-slide">
+							* </span>
+						<a class="{% if request.path == '/galeria/' %}active{% endif %}" href="{% url 'galeria' %}">Galería </a><span
+						 class="menu-slide"> * </span>
+						<a class="{% if request.path == '/contacto/' %}active{% endif %}" href="{% url 'contacto' %}">Contacto </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Contenido -->
+	<div id="content">
+		<div class="content-container">
+			<div class="banner-container">
+				<div class="principal-banner-gal" style="{% block banner-img %}{% endblock %}">
+					<div class="principal-banner-text" style="{% block banner-text-style %}{% endblock %}">
+						{% block banner-text %}{% endblock banner-text %}
+					</div>
+					{% if 'presentaciones' in request.path or 'obra' in request.path or 'bio' in request.path or 'compañero' in request.path %}
+						<div id="" 
+							 class="bio-banner-img">
+							{% block bio-perfil-img %}{% endblock %}
+							<div class="fecha-bio">
+								{% block fecha-bio %}{% endblock %}
+							</div>
+						</div>
+					{% endif %}
+				</div>
+				<div style="{% block subbanner-color %}{% endblock %}" class="sub-banner sub-banner-n">
+				</div>
+				{% if 'historia' not in request.path and 'blog' not in request.path and 'presentaciones' not in request.path %}
+				<div style="text-align: center;" class="head-text">
+					{% block head-text %}{% endblock head-text %}
+				</div>
+				{% endif %}
+			</div>
+
+			{% block content %}{% endblock content %}
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer>
+		<div class="footer-container">
+			<div class="footer-diagonal">
+				<div class="footer-redes"7>
+					{% if LINK_FACEBOOK %}
+					<a href="{{LINK_FACEBOOK}}" ><i title="Facebook" class="fab fa-facebook-f"></i></a>
+					{% endif %}
+					{% if LINK_TWITTER %}
+					<a href="{{LINK_TWITTER}}" ><i title="Twitter" class="fab fa-twitter"></i></a>
+					{% endif %}
+					{% if LINK_INSTAGRAM %}
+					<a href="{{LINK_INSTAGRAM}}" ><i title="Instagram" class="fab fa-instagram"></i></a>
+					{% endif %}
+				</div>
+				<div class="footer-bottom" style="background-image:  
+				url('{% static 'core/img/logos/contigo_america_fondo_blanco.png' %}');">
+					<img />
+					<div class="footer-info-container">
+						<div style="padding: 0px;" class="menu-footer">
+							<h3>Nuestro Foro</h3>
+							<a href="{% url 'cartelera' %}">Cartelera</a>
+							<a href="{% url 'acerca' %}">Acerca</a>
+							<a href="{% url 'foro' %}">Convocatorias</a>
+							<a href="{% url 'foro' %}">Rentas</a>
+							<a href="{% url 'faqs' %}">Faqs</a>
+						</div>
+						<div class="menu-footer">
+							<h3>Institución</h3>
+							<a href="{% url 'historia' %}">Historia</a>
+							<a href="{% url 'compañia' %}">Compañía</a>
+							<a href="{% url 'biblioteca' %}">Biblioteca</a>
+							<a href="{% url 'blog' %}">Blog</a>
+							<a href="{% url 'galeria' %}">Galería</a>
+							<a href="{% url 'contacto' %}">Contacto</a>
+
+
+						</div>
+						<div id="footer-ca-contact" class="menu-footer">
+							<h1>Contigo América</h1>
+							<h4 id="fix-footer-contact-h4">Institución Teatral Independiente, A.C.</h4>
+							<div class="footer-list">
+								<ul>
+									<li>
+										<p><span> </span>Arizona #156,
+											Colonia Nápoles, CDMX. </p>
+									</li>
+									<li>
+										<div class="kit-contacto">
+											<a><i id="footer-whats" class='fab fa-whatsapp'></i></a>
+											<a><i class='fas fa-envelope'></i></a>
+											<a><i class='fas fa-phone'></i></a>
+											<span> | </span>
+											<a><i class="fas fa-map-marker-alt"></i></a>
+											<a><i class="far fa-question-circle"></i></a>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="bluescode">
+
+
+					<p>&#174; Blues Code</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	{% endif %}
+	<!-- Scripts -->
+	<!-- Shrink navbar -->
+	<script>
+		// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+		window.onscroll = function () { scrollFunction() };
+
+		function scrollFunction() {
+
+			var path = "{{ request.path }}";
+			var cart = path.includes("presentaciones");
+			var aboutBio = path.includes("bio")
+			console.log(cart);
+			if (cart || aboutBio) {
+				document.getElementById("navbar").style.padding = "";
+				document.getElementById("base-logo-img").style.width = "0%";
+				document.getElementById("base-brand").style.display = "none";
+				document.getElementById("content").style.marginTop = "45px";
+				// 
+				document.getElementById("base-logo").style.padding = "0px";
+				document.getElementById("base-logo").style.marginTop = "-25px";
+				document.getElementById("base-menu").style.marginBottom = "0px";
+				// 
+				document.getElementById("navbar").style.padding = "0px";
+
+			} else if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 150) {
+				document.getElementById("base-logo-img").style.width = "0%";
+				document.getElementById("base-brand").style.display = "none";
+				document.getElementById("content").style.marginTop = "17%";
+				// 
+				document.getElementById("base-logo").style.padding = "0px";
+				document.getElementById("base-logo").style.marginTop = "-25px";
+				document.getElementById("base-menu").style.marginBottom = "0px";
+				// 
+				document.getElementById("navbar").style.padding = "0px";
+
+
+
+
+
+
+			} else {
+				document.getElementById("base-logo-img").style.width = "18%";
+				document.getElementById("base-brand").style.display = "block";
+				document.getElementById("content").style.marginTop = "25%";
+				document.getElementById("base-logo").style.paddingTop = "15px";
+				document.getElementById("base-logo").style.marginTop = "0px";
+				document.getElementById("base-menu").style.marginBottom = "20px";
+				// 
+				document.getElementById("navbar").style.padding = "1%";
+
+
+
+			}
+		}
+	</script>
+	<!-- Block Scripts -->
+	{% block scripts %}{% endblock scripts %}
+
+</body>
+
+
+</html>
