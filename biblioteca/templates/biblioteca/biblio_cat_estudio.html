@@ -27,7 +27,11 @@
             <a style="cursor:default; color:#E0DFDD;">[ {{cate}} ]</a>
         </div>
         <hr>
-        
+        {% if not query %}
+            <h1>Lo sentimos por el momento no hay elementos.</h1>
+            <h2>Estaremos contento de recibirlo en la biblioteca de forma presencial en el
+            Foro Contigo América (con previa cita).</h2>
+        {% endif %}
         <div class="cat-estudio-links" >
         <!-- categoría de estudio -->
                 {% for i in listaa %}
@@ -49,7 +53,7 @@
         </div>
         {% endfor %}
         
-    
+    <a href="{% url 'biblio-index' %}" class="btn-regresar"><span> < </span>Regresar al Inicio de Biblioteca</a>
     </div>
 {% endblock content %}
 

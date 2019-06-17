@@ -256,7 +256,7 @@ class Presentaciones(models.Model):
         help_text="Introduzca la duración de la presentación."
     )
 
-    grupoLink = models.URLField(verbose_name="Link del Grupo", null=True, blank=True)
+    grupoLink = models.URLField(verbose_name="Facebook del Grupo", null=True, blank=True)
     usuario = models.ForeignKey(
         User, 
         verbose_name='Usuario', 

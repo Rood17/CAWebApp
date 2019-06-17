@@ -19,8 +19,9 @@ onload="scrollFunction()";
 
 <!-- Principal Banner Text -->
 {% block banner-text %}
-    {% for i in obra %}
-        <h1>{{i.titulo}}</h1>
+
+    <h1>{{a}}</h1>
+    {% for i in obra %}  
         {% if autorydir %}
             <h3>{{autorydir}}</h3>
         {% else %}
@@ -42,7 +43,7 @@ left:50%;
 
 {% block bio-perfil-img %}
     {% for i in obra %}
-        <img src='{{i.Cartel.url}}' />{{obra}}
+        <img src='{{i.Cartel.url}}' />
     {% endfor %}
 {% endblock %}
 
@@ -120,19 +121,22 @@ left:50%;
                             <h4>Duración</h4> - {{i.duracion}}
                         </p>
                     </li>
-                    <li>
-                        <p>
-                            <h4>Contacto</h4> - {{i.contacto}}
-                        </p>
+                    {% if i.grupoLink %}
+                    <li>    
+                        <a target="_blank" href="{{i.grupoLink}}">Facebook del grupo</a>
                     </li>
+                    {% endif %}
                 </ul>
                 <div class="kit-contacto bio-redes">
-                    <a><i class="fab fa-facebook-f"></i></a>
-                    <a><i class="fab fa-twitter"></i></a>
-                    <a><i class="fab fa-instagram"></i></a>
+                  <!-- Load Facebook SDK for JavaScript -->
+                    <h6 class="compartir-redes">Compartir función en redes sociales</h6>
+                    <a href="javascript: void(0);" 
+                    onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.contigoamerica.org.mx/cartelera/obra/{{i.id}}/','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');"><i class="fab fa-facebook-f"></i></a>
+                    <a target="blank" href="https://twitter.com/home?status={{i.titulo}} del grupo {{i.Agrupacion}}. --- En Foro Contigo América, ¡No te la puedes perder!"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
             <div class="clearfix"></div>
+            {% if imgReparto %}
             <div class="reparto">
                 <h2>Reparto | Compañía</h2>
                 <div class="reparto-gal">
@@ -211,6 +215,8 @@ left:50%;
 
                 </div>
             </div>
+            {% endif %}
+            {% if recomen %}
             <div class="recomendaciones">
                 <h2>Recomendaciones - (4)</h2>
                 <div id="recomendacionesBtn">
@@ -275,10 +281,12 @@ left:50%;
 
 
             </div>
+            {% endif %}
 
         </div>
     {% endfor %}
 <div class="clearfix"></div>
+<a href="{% url 'cartelera' %}" class="btn-regresar"><span> < </span>Regresar a Cartelera</a>
 {% endblock content %}
 
 <!-- Scripts -->

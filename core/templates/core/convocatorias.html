@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+<!-- Título de la página -->
+{% block title %}{% endblock title %}
+
+<!-- Banner Background img -->
+{% block banner-img %}
+    background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
+{% endblock banner-img %}
+
+<!-- Principal Banner Text -->
+{% block banner-text %}
+    <h5>Presenta tu Obra en Contigo América</h5>
+    <p>Nuestras convocatorias están abiertas todo el año</p>
+    <a>Presenta en el foro "Contigo América"</a>
+    <span> || </span>
+    <a>Presenta en nuestra Sala "Blas Braidot"</a>
+    <span> || </span>
+    <a>Presenta una exposición</a>
+{% endblock banner-text %}
+
+<!-- Sub Banner Background Color -->
+{% block subbanner-color %}
+    background-color: #f8ec48;
+{% endblock %}
+
+<!-- Head Text -->
+{% block head-text %}
+    <p>Lejos del modelo de Teatro Independiente mexicano,
+        que alcanzó su auge en los años setenta y se caracterizó
+        por la prioridad de la eficacia política sobre la
+        eficacia estética, la experiencia de "Contigo América",
+        significa la puesta a prueba en nuestro país del modelo
+        de independencia artísitica y operativa que constituye
+        la mayor aportación del teatro sudamericano
+        (particularmente en las experiencias de países como
+        Argentina y Uruguay).<span class="citas"> Rodolfo Obregon.</span>
+    </p>
+{% endblock head-text %}
+
+{% block content %}
+<div class="page-content">
+    <div class="page-content-header">
+        <h1>¡Presenta tu obra con nosotros!</h1>
+        
+    </div>
+    <div class="page-content-content">
+        <p>Requisitos:</p>
+            <ul>
+                <li>Requisito 1</li>
+            </ul>
+    </div>
+    <div class="page-content-footer">
+        <p>Mándanos tu carpeta a <span><a href="mailto:contigoamerica@yahoo.com.mx">
+                                            contigoamerica@yahoo.com.mx</a></span>
+        </p>
+    </div>
+</div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %}
+    
+{% endblock scripts %}

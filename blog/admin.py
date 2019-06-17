@@ -31,8 +31,8 @@ class entradaBlogAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     search_fields = ('titulo', 'etiquetaBlog__name','autor__username')
     readonly_fields = ('created', 'updated')
-    list_filter = ('etiquetaBlog__cat_estudio', 'autor__username')
-    list_display = ('titulo', 'created', 'updated')
+    list_filter = ('donativo','etiquetaBlog__cat_estudio', 'autor__username')
+    list_display = ('titulo', 'donativo', 'created', 'updated')
     
 
 

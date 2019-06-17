@@ -44,7 +44,7 @@ class PresentacionesAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     search_fields = ('titulo', 'usuario__username')
     readonly_fields = ('created', 'updated')
-    list_filter = ('titulo', 'presentacion', 'status')
+    list_filter = ('presentacion', 'status')
     list_display = ('titulo', 'presentacion','status', 'created', 'updated')
     fields = ['titulo','presentacion','status','Cartel','imagenPortada',
               ('diaSem', 'hora'), 'fechaCal', 'donativo', 'sinopsis', 'elenco',

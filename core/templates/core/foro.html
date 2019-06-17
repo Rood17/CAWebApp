@@ -14,9 +14,9 @@
     <h5>Nuestros Espacios</h5>
                     <p>Arizona #156, col. Nápoles</p>
                     <a>El Foro</a>
-                    <spam> // </spam>
-                    <a>Sala Blass</a>
-                    <spam> // </spam>
+                    <span> // </span>
+                    <a>Sala Blas Braidot</a>
+                    <span> // </span>
                     <a>Biblioteca</a>
 {% endblock banner-text %}
 
@@ -47,7 +47,7 @@
                     <div class="foro-espacios-overlay">
                         <div class="foro-img-text">
                             <h1>Vestibulo</h1>
-                            <a>Galeria</a>
+                            <a href="{% url 'galeria' %}">Galeria</a>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <li>Ideal para esperar la función</li>
                     </ul>
                     <ul class="foro-aside-anchor">
-                        <li><a>Contacto</a></li>
+                        <li><a href="{% url 'contacto' %}">Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,9 +71,48 @@
                     <ul>
                         <li>Foro Principal</li>
                         <li>Aforo de 52 butacas.</li>
-                        <li>Escenario de 9 x 5.8 mts.</li>
-                        <li>Equipada con Iluminación,</li>
-                        <li>Consola de Audio,</li>
+                        <li>Escenario de 9 x 5.8 mts.<button onclick="document.getElementById('levantamiento').style.display='block'" class="w3-button w3-black btn-foro">Levantamiento</button></li>
+                            <div id="levantamiento" class="w3-modal">
+                                <div class="w3-modal-content w3-animate-top w3-card-4">
+                                <header class="w3-container w3-teal"> 
+                                    <span onclick="document.getElementById('levantamiento').style.display='none'" 
+                                    class="w3-button w3-display-topright">&times;</span>
+                                    <h2>Levantamiento</h2>
+                                </header>
+                                <div class="w3-container">
+                                    <img src="{% static 'core/img/foro/modals/levantamiento.jpg' %}"/>
+                                </div>
+                                </div>
+                            </div>
+                        <li><button onclick="document.getElementById('consola_iluminacion').style.display='block'" class="w3-button w3-black btn-foro">Equipo de Iluminación</button></li>
+                            <div id="consola_iluminacion" class="w3-modal">
+                                <div class="w3-modal-content w3-animate-top w3-card-4">
+                                <header class="w3-container w3-teal"> 
+                                    <span onclick="document.getElementById('consola_iluminacion').style.display='none'" 
+                                    class="w3-button w3-display-topright">&times;</span>
+                                    <h2>Consola de Iluminación</h2>
+                                </header>
+                                <div class="w3-container">
+                                    <img src="{% static 'core/img/foro/modals/equipo_01.jpg' %}"/>
+                                    <img src="{% static 'core/img/foro/modals/equipo_02a.jpg' %}"/>
+                                    <img src="{% static 'core/img/foro/modals/equipo_03.jpg' %}"/>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        <li><button onclick="document.getElementById('consola_sonido').style.display='block'" class="w3-button w3-black btn-foro">Consola de Audio</button></li>
+                            <div id="consola_sonido" class="w3-modal">
+                                <div class="w3-modal-content w3-animate-top w3-card-4">
+                                <header class="w3-container w3-teal"> 
+                                    <span onclick="document.getElementById('consola_sonido').style.display='none'" 
+                                    class="w3-button w3-display-topright">&times;</span>
+                                    <h2>Consola de Audio</h2>
+                                </header>
+                                <div class="w3-container">
+                                    <img src="{% static 'core/img/foro/modals/equipo1.jpg' %}"/>
+                                </div>
+                                </div>
+                            </div>
                         <li>Parks y Leekos.</li>
                     </ul>
                     <ul class="foro-aside-anchor">
@@ -86,7 +125,7 @@
                     <div class="foro-espacios-overlay">
                         <div class="foro-img-text">
                             <h1>Foro - Contigo América</h1>
-                            <a>Galeria</a>
+                            <a href="{% url 'galeria' %}">Galeria</a>
                         </div>
                     </div>
                 </div>
@@ -97,7 +136,7 @@
                     <div class="foro-espacios-overlay">
                         <div class="foro-img-text">
                             <h1>Sala Blass Blaidot</h1>
-                            <a>Galeria</a>
+                            <a href="{% url 'galeria' %}">Galeria</a>
                         </div>
                     </div>
                 </div>
@@ -128,8 +167,8 @@
                         <li>Y muchos otros temas más...</li>
                     </ul>
                     <ul class="foro-aside-anchor">
-                        <li><a>Catálogo</a><span> // </span></li>
-                        <li><a>Citas</a><span></span></li>
+                        <li><a href="{% url 'biblioteca' %}">Catálogo</a><span> // </span></li>
+                        <li><a href="{% url 'contacto' %}">Citas</a><span></span></li>
                     </ul>
                 </div>
                 <div class="foro-img-container inline-block">
@@ -137,7 +176,7 @@
                     <div class="foro-espacios-overlay">
                         <div class="foro-img-text">
                             <h1>Biblioteca</h1>
-                            <a>Galeria</a>
+                            <a href="{% url 'galeria' %}">Galeria</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +187,7 @@
                     <div class="foro-espacios-overlay">
                         <div class="foro-img-text">
                             <h1>Camerino</h1>
-                            <a>Galeria</a>
+                            <a href="{% url 'galeria' %}">Galeria</a>
                         </div>
                     </div>
                 </div>
@@ -174,8 +213,8 @@
                             </span></li>
                     </ul>
                     <ul class="foro-aside-anchor">
-                        <li><a>Compañia</a><span> // </span></li>
-                        <li><a>Historia</a><span></span></li>
+                        <li><a href="{% url 'compañia' %}">Compañia</a><span> // </span></li>
+                        <li><a href="{% url 'historia' %}">Historia</a><span></span></li>
                     </ul>
                 </div>
                 <div class="foro-img-container inline-block">
@@ -183,7 +222,7 @@
                     <div class="foro-espacios-overlay">
                         <div class="foro-img-text">
                             <h1>En Escena</h1>
-                            <a>Galeria</a>
+                            <a href="{% url 'galeria' %}">Galeria</a>
                         </div>
                     </div>
                 </div>

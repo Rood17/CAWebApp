@@ -32,7 +32,9 @@ background-color: #d64223;
 {% block head-text %}
 <h3>Nuestra propuesta creativa</h3>
 <br>
-{{propuesta | safe}}
+{% for i in propuesta %}
+	{{ i.propuesta | safe	}}
+{% endfor %}
 {% endblock head-text %}
 
 <!--  Contenido -->
@@ -49,7 +51,7 @@ background-color: #d64223;
 				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
 					<h1>{{i.nombre}}</h1>
-					<p>Más Info</p>
+					<p><a href="{% url 'compañia_bio' i.id %}" >Más Info</a></p>
 				</div>
 			{% endfor %}
 			</div>
@@ -58,7 +60,7 @@ background-color: #d64223;
 				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
 					<h1>{{i.nombre}}</h1>
-					<p>Más Info</p>
+					<p><a href="{% url 'compañia_bio' i.id %}" >Más Info</a></p>
 				</div>
 			{% endfor %}
 			</div>
@@ -70,8 +72,8 @@ background-color: #d64223;
 			<div class="bio-5">
 				<img src="{% static 'core/img/historia/grupo-4.jpg' %}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
-					<h1>Heading</h1>
-					<p>.</p>
+					<h1>Compañía Contigo América</h1>
+					<p>Teatro Independiente</p>
 				</div>
 			</div>
 			<div class="img-gray bio-6">
@@ -87,7 +89,7 @@ background-color: #d64223;
 				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
 					<h1>{{i.nombre}}</h1>
-					<p>Más Info</p>
+					<p><a href="{% url 'compañia_bio' i.id %}" >Más Info</a></p>
 				</div>
 			{% endfor %}
 			</div>
@@ -101,7 +103,7 @@ background-color: #d64223;
 				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
 					<h1>{{i.nombre}}</h1>
-					<p>Más Info</p>
+					<p><a href="{% url 'compañia_bio' i.id %}" >Más Info</a></p>
 				</div>
 				{% endfor %}
 			</div>
@@ -110,7 +112,7 @@ background-color: #d64223;
 				<img src="{{i.imagenPerfil.url}}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
 					<h1>{{i.nombre}}</h1>
-					<p>Más Info</p>
+					<p><a href="{% url 'compañia_bio' i.id %}" >Más Info</a></p>
 				</div>
 			{% endfor %}
 			</div>
@@ -119,7 +121,10 @@ background-color: #d64223;
 			</div>
 		</div>
 	</div>
-	<div class="lista-biblio-container">
+
+	<A name="repertorio"></a>
+	<div class="lista-biblio-container" id="repertorio" >
+	
 		<h2>Repertorio</h2>
 		{% for i in repertorio %}
 		<div class="libro-container">

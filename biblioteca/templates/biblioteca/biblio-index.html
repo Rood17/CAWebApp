@@ -35,7 +35,11 @@
                 {% endfor %}
         </div>
         <hr>
-        <h1>QUERY - </h1>{{listaResul}} {{query}}
+        {% if not query %}
+            <h1>Lo sentimos por el momento no hay elementos.</h1>
+            <h2>Estaremos contento de recibirlo en la biblioteca de forma presencial en el
+            Foro Contigo América (con previa cita).</h2>
+        {% endif %}
 
         <br>
     {% if not query %}

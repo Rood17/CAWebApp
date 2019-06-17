@@ -71,7 +71,7 @@ background-color: #d64223;
 						<div class="cart-info cart-dia inline-block">
 							<h3>
 								{% if not hoy %}
-								Próxima Obra |
+								Próxima Función |
 								{% else %}
 								Hoy |
 								{% endif %}
@@ -162,7 +162,7 @@ background-color: #d64223;
 			<p>Presentandose <span class="primary-color">Hoy</span> - {{espe.titulo}}</p>
 			{% else %}
 			{% for i in prox_ev %}
-				<p>Proxima Evento <span class="primary-color"></span> - 
+				<p>Próximo Evento <span class="primary-color"></span> - 
 					{{i.titulo}} {{espe_day}} {{mes}}
 				</p>
 			{% endfor %}
@@ -189,8 +189,13 @@ background-color: #d64223;
 						</div>
 						<div class="cartelera-main-footer">
 							<h2>{{espe.titulo}}</h2>
-							<h3>Una Exposición de {{espe.autor}}</h3>
-							<h4>Ignaguración - {% for i in espe.fechaCal.all %}{{i.fechaCa}}{% endfor %} de {{mes}} del {{año}} </h4>
+							{% if espe.autorydir %}
+							<h6>Autor y Dirección - {{espe.autorydir}}</h6>
+							{% endif %}
+							{% if espe.autor %}
+							<h6>Autor - {{espe.director}}</h6>
+							{% endif %}
+							<h4>Presentación - {% for i in espe.fechaCal.all %}{{i.fechaCa}}{% endfor %} de {{mes}} del {{año}} </h4>
 							<p> Entrada libre | <a href="{% url 'obra' espe.titulo.id %}">Más Info</a> </p>
 
 						</div>
@@ -201,6 +206,7 @@ background-color: #d64223;
 		{% endif %}
 	</div>	
 </div>
+
 <div class="filtros-cartelera inline-flex">
 	<div class="calendar-container">
 		<input type="text" id="mydate" gldp-id="mydate" />
@@ -242,7 +248,7 @@ background-color: #d64223;
 			cssName: 'flatwhite',
 			allowMonthSelect: true,
 			
-			// Investigar útil
+			// Special Dates Calendar Cartelera
 			specialDates: [
 				{
 					date: new Date({{año}}, {{mes_cal}}, {{diaCal_1}}),
@@ -299,13 +305,66 @@ background-color: #d64223;
 					cssClass: 'special-bday'
 				},
 				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_11}}),
+					data: {{dci_11}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_12}}),
+					data: {{dci_12}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_13}}),
+					data: {{dci_13}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_14}}),
+					data: {{dci_14}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_15}}),
+					data: {{dci_15}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_16}}),
+					data: {{dci_16}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_17}}),
+					data: {{dci_17}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_18}}),
+					data: {{dci_18}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				{
+					date: new Date({{año}}, {{mes_cal}}, {{diaCal_19}}),
+					data: {{dci_19}},
+					repeatYear: true,
+					cssClass: 'special-bday'
+				},
+				
+				{
 					date: new Date({{año}}, {{mes_cal}}, 0),
 					data: { message: '' },
 					repeatYear: true,
 					cssClass: 'sinclase'
 				},
-				
-				
 			],
 			monthNames: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
 			dowNames: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
