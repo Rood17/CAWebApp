@@ -40,7 +40,7 @@ class ObraAdmin(admin.ModelAdmin):
 
 # Cartelera - Función
 class PresentacionesAdmin(admin.ModelAdmin):
-    readonly_fields = ('created', 'updated')
+    readonly_fields = ('created', 'updated', 'usuario')
     date_hierarchy = 'created'
     search_fields = ('titulo', 'usuario__username')
     readonly_fields = ('created', 'updated')
@@ -48,7 +48,7 @@ class PresentacionesAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'presentacion','status', 'created', 'updated')
     fields = ['titulo','presentacion','status','Cartel','imagenPortada',
               ('diaSem', 'hora'), 'fechaCal', 'donativo', 'sinopsis', 'elenco',
-                'Agrupacion', 'etiquetasCartelera', 'publico', 'duracion', 'grupoLink', 'usuario'
+                'Agrupacion', 'etiquetasCartelera', 'publico', 'duracion', 'grupoLink',
                 ]
     # form = AutocompleteEtiquetasForm
 

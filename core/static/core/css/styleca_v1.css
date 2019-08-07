@@ -41,13 +41,14 @@ h1, h2,h3,h4,h5,h6 {
 a,p,span,button {
 	font-family: 'Lato', sans-serif;
 }
+a:hover {
+	color: #d64223;
+}
 ul {
 	list-style: none;
 }
 h1 {
 	font-size: 2em;
-	font-weight: 600;
-
 }
 h2 {
 	font-size: 1.5em;
@@ -59,14 +60,14 @@ h4 {
 	font-size: 1.1em;
 }
 h6 {
-	font-size: .8em;
+	font-size: .8em;	
 }
 /* H5 MUTANTE - Banner */
 h5 {
 	font-size: 4em;
 }
 a {
-	font-size: 15px;
+	font-size: 16px;
 	text-decoration: none;
 	color: black;
 	font-weight: none;
@@ -86,6 +87,12 @@ button {
 	color: white;
 	cursor: pointer;
 	border: none;
+}
+.btn-regresar {
+	padding: 5%;
+}
+.btn-regresar:hover {
+	color: #d64223;
 }
 
 /** Generales **/
@@ -250,7 +257,7 @@ header .logo-intro {
 	display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  vertical-align: 10%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -292,6 +299,9 @@ header .logo-intro {
 .intro-contact-sublinks {
 	padding: 10px 0 0 ;
 }
+.respon-contact-sublinks {
+	display: none;
+}
 .nav-intro-content a:hover {
 	color: #fff;
 	box-shadow: 0px 0 #5b5959, -0.9em 0em 1.4em #333131ad;
@@ -332,7 +342,13 @@ header .logo-intro {
 .fix-menu-intro-top-foro {
 	margin: -18px 0;
 }
-
+/* Pages */
+.page-content {
+	padding: 5%;
+}
+.page-content-content {
+	padding: 5%;
+}
 
 /** Base HTML **/
 
@@ -460,10 +476,10 @@ footer .fab {
 	background-position-x: -13%;
 	background-position-y: 143px;
 	text-align: center;
-  }
+  
   background-position-x: -11%;
   background-position-y: 143px;
-
+}
 .footer-bottom img {
 	width: 50px;
 }
@@ -526,7 +542,7 @@ footer .fab {
 /* Páginas Bio */
 /* BIO - BANNER */
 .bio-banner-img img {
-	width: 25%;
+	width: 20%;
 	border: solid 5px #23b7d6;
 	background-color: #fff;
     padding: 1%;
@@ -784,7 +800,7 @@ footer .fab {
 	margin: 0;
 }
 .cart-info {
-	padding: 1em;
+	padding: 0.3em;
 }
 .cart-info-2 {
 	padding: 5px 1em!important;
@@ -824,8 +840,8 @@ footer .fab {
 	color: #f1f1f1;
 	width: 100%;
 	padding: 0;
-	margin: -31% 0 0 0;
-	bottom: -378px;
+	margin: -30% 0 0 0;
+	bottom: -340px;
   }
 .app-cartelera {
 	width: 49%;
@@ -1018,9 +1034,6 @@ top: 52%;
 	width: 100%;
 	padding: 0 10%;
 }
-#footer-whats {
-	color: white;
-}
 #footer-whats:hover {
 	color: #d64223;
 }
@@ -1136,6 +1149,7 @@ button.accordion.active:after {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position-y: 27% ;
+	background-position-x: center;
 	position: relative;
 }
 .principal-banner-about {
@@ -1456,7 +1470,7 @@ main {
 /* About */
 .about-column {
 	float: left;
-	width: 25%;
+	width: 27%;
 	margin:3% 2%;
 	padding: 0 8px;
   }
@@ -1465,8 +1479,8 @@ main {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
   .about-card img {
-	width: 255px;
-    height: 370px;
+	width: 100%;
+  max-height: 370px;
   }
   .about-container {
 	padding: 0% 10% 0;
@@ -1759,8 +1773,8 @@ main {
     margin-left: 0;
     padding: 0;
     margin-top: 12px;
-    padding-bottom: 50px;
-    font-size: 0;
+	padding-bottom: 50px;
+	font-size: inherit;
 	}
 
 	.clearfix:before, .clearfix:after {
@@ -1855,7 +1869,8 @@ main {
 	  .btnBlog.activeFilter {
 		background-color: #666;
 		color: white;
-	  }
+		}
+
 
 /* Fin Blog */
 
@@ -2007,7 +2022,13 @@ main {
 	color: #f1f1f1;
 	width: 100%;
 	padding: 15px;
-  }
+	}
+	.bio-content a {
+		color:white;
+	}
+	.bio-content a:hover {
+		color:#d64223;
+	}
 /* Fin Compañía */
 
 
@@ -2167,6 +2188,10 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 	.intro-historia-content {
 		border-style:none;
 	}
+	.intro-general-links {
+		padding: 20% 0 0;
+		float: none;
+	}
 	/* EndNav */
 	/* Footer */
 	.menu-footer {
@@ -2184,9 +2209,6 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 	/* End Blog */
 
 	/* FOOTER */
-	.footer-list li p {
-    width: ;
-	}
 	#footer-ca-contact {
 		width:100%;
 		text-align: center;
@@ -2212,6 +2234,9 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 	h4 {
 		font-size: 1em;
 	}
+	#content {
+		margin-top: 33%;
+	}
 	/* NAV */
 	#base-logo-img {
 		width: 22%;
@@ -2225,6 +2250,19 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 	#base-brand {
     margin: 20px 0 15px;
 	}
+	.display-contact-sublinks {
+		display: none!important;
+	}
+	.respon-contact-sublinks {
+		display: block;
+	}
+	.intro-general-links {
+		padding: 10% 0 0;
+		float: none;
+	}
+	.intro-contact-links {
+		float: none;
+	}
 	/* End Nav */
 	/* CARTELERA */
 	.cartelera-container {
@@ -2235,12 +2273,16 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 	}
 	.filtros-cartelera {
 		position: unset!important;
+		margin: 0 30% 0;
 	}
 	.gldp-flatwhite {
 		position: unset!important;
 	}
 	.gldp-el {
 		visibility: hidden;
+	}
+	#content {
+		margin-top: 30%;
 	}
 	/* ENDCARTELERA */
 
@@ -2310,6 +2352,11 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 
 /* MAX - 425 */
 @media screen and (max-width: 425px){
+	/* GENERAL */
+	#content {
+		margin-top: 63%;
+	}
+	/*  */
 	/* Nav */
 	#base-logo-img {
 		width: 200px;
@@ -2322,9 +2369,45 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 	}
 	/* End Nav */
 	/* Cartelera */
+	.app-cartelera-container .obra-content{
+		margin: 5% 0 0 0;
+		bottom: 60%;
+	}
 	.app-cartelera {
-		display: block;
 		width: 100%;
+	}
+	.filtros-cartelera {
+		margin: 0 20% 0;
+	}
+	#content {
+    margin-top: 63%;
+	}
+	.cartelera-container {
+		width: 100%;
+	}
+	.cartelera-header {
+		margin: 0;
+	}
+	.app-cartelera-container {
+		margin: 0;
+	}
+	.donativo {
+		display: none;
+	}
+	.presentacion-imgs {
+		width: 100%;
+		float: none;
+	}
+	.bio-banner-img {
+		display: none;
+	}
+	.presentacion-info {
+		width: 100%;
+		margin: 0;
+	}
+	.cartelera-ul-container {
+		margin: 10% 5% 0;
+		float: none;
 	}
 	/* EndCartelera */
 	/* Blog */
@@ -2340,6 +2423,19 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 		display: unset;
 	}
 	/* EndCompañia */
+	/* CONTACT */
+	.directorio-contact {
+		width: 100%;
+		text-align: none;
+		display: block;
+	}
+	.contact-form{
+		width: 100%;
+	}
+	.container-info-contact {
+		margin: 3em auto 12em;
+	}
+	/* END CONTACT */
 	/* Footer */
 	.footer-bottom {
     background-position-x: -218%;
@@ -2350,11 +2446,24 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 
 /* MAX - 375 */
 @media screen and (max-width: 375px) {
+	/* GENERAL */
+	#contant {
+		margin-top: 70%;
+	}
+	/*  */
 	/* Nav */
 	.intro-box {
 		margin: 0px;
 	}
+	.menu-intro-bottom {
+		padding: 20% 5% 11%;
+	}
 	/* EndNav */
+	/* CARTELERA */
+	#content {
+    margin-top: 63%;
+	}
+	/* ENDCARTELERA */
 	/* Blog */
 	.filterDiv{
 		width: 100%;
@@ -2364,11 +2473,24 @@ select, input[type="email"], input[type="text"], input[type=password], input[typ
 
 /* MAX - 320 */
 @media screen and (max-width: 320px) {
+	/* GENERAL */
+	#contant {
+		margin-top: 87%;
+	}
+	/*  */
 	/* Nav */
 	header .logo-intro {
 		max-width: 60%; 
 	}
 	/* EndNav */
+	/* CARTELERA */
+	.filtros-cartelera {
+		margin: 0 15% 0;
+	}
+	#content {
+    margin-top: 88%;
+	}
+	/* END CARTELERA */
 	/* Footer */
 	.footer-bottom {
     background-position-y: 500px;

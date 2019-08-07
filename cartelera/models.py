@@ -237,14 +237,16 @@ class Presentaciones(models.Model):
     )
 
     Agrupacion = models.CharField(max_length=100,default=None, verbose_name='Nombre de la Agrupación')      
-    PUBLI = (
-        ('01', 'Público en general'),
+
+    PUBLICO_CHOICES =(
+        ('01', 'Para todo público'),
         ('02', 'Adolecentes y adultos'),
-        ('03', 'Función para niños'), 
+        ('03', 'Función para niños'),
+        ('04', 'Sin definir'),
     )
     publico = models.CharField(
-        max_length=60,  
-        choices=PUBLI, 
+        max_length=2,  
+        choices=PUBLICO_CHOICES, 
         default='01', 
         verbose_name='Público',
         help_text=''
@@ -262,7 +264,8 @@ class Presentaciones(models.Model):
         verbose_name='Usuario', 
         blank =True, 
         null=True, 
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
+        default=User
     )
 
 

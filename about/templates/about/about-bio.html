@@ -49,7 +49,7 @@ left:50%;
 {% for i in perfil %}
 <div class="about-bio-container">
     <div class="presentacion-imgs">
-        <img src='{% static "core/img/galeria/escena/7.jpg" %}' />
+        <img src='{{i.imagenExtra.url}}' />
     </div>
     <div class="presentacion-info">
         <ul>
@@ -62,12 +62,20 @@ left:50%;
             </li>
         </ul>
         <div class="kit-contacto bio-redes">
-            <a><i class="fab fa-facebook-f"></i></a>
-            <a><i class="fab fa-twitter"></i></a>
-            <a><i class="fab fa-instagram"></i></a>
+            {% if i.linkface %}
+            <a target="_Blank" href="{{i.linkface}}"><i class="fab fa-facebook-f"></i></a>
+            {% endif %}
+            {% if i.linktweet %}
+            <a target="_Blank" href="{{i.linktweet}}" ><i class="fab fa-twitter"></i></a>
+            {% endif %}
+            {% if i.linkinsta %}
+            <a target="_Blank" href="{{i.linkinsta}}" ><i class="fab fa-instagram"></i></a>
+            {% endif %}
         </div>
     </div>
     <div class="clearfix"></div>
+<a href="{% url 'acerca' %}" class="btn-regresar"><span> < </span>Regresar a Acerca de...</a>
+
 </div>
 
 <div class="clearfix"></div>

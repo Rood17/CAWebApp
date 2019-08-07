@@ -46,12 +46,12 @@
                         <div class="clear"></div>
                         
                         <ul class="contact-info-list">
-                            <li><p><span>Administración: </span><a href="http://127.0.0.1:8000/acerca/compa%C3%B1ero/5/">Liliana Guido.</p></li>
-                            <li><p><span>Promoción: </span><a href="http://127.0.0.1:8000/acerca/compa%C3%B1ero/8/" >Martha Tapia.</a></p></li>
-                            <li><p><span>Programación: </span><a href="http://127.0.0.1:8000/acerca/compa%C3%B1ero/4/" >Williams Sayago.</a></p></li>
-                            <li><p><span>Responsable del Foro y Redes Sociales: </span><a href="http://127.0.0.1:8000/acerca/compa%C3%B1ero/3/" > Héctor Yaza.</a></p></li>
-                            <li><p><span>Gestión de Proyectos: </span><a href="" >Patricia Chavero.</a></p></li>
-                            <li><p><span>Desarrollo WEB: </span><a href="" >Rodrigo Mora.</a></p></li>
+                            <li><p><span>Administración: </span><a href="{% url 'acerca-bio' 5 %}">Liliana Guido.</p></li>
+                            <li><p><span>Promoción:  </span><a href="{% url 'acerca-bio' 8 %}" >Martha Tapia.</a></p></li>
+                            <li><p><span>Programación:  </span><a href="{% url 'acerca-bio' 4 %}" >Williams Sayago.</a></p></li>
+                            <li><p><span>Responsable del Foro y Redes Sociales : </span><a href="{% url 'acerca-bio' 3 %}" > Héctor Yaza.</a></p></li>
+                            <li><p><span>Gestión de Proyectos:  </span><a href="{% url 'acerca-bio' 9 %}" >Patricia Chavero.</a></p></li>
+                            <li><p><span>Desarrollo WEB:  </span><a href="" >Rodrigo Mora.</a></p></li>
                                 <li><i class='fas fa-phone'></i><a href="callto://01555433865" title="Llamar"> 01
                                             (55)75 89 09 17</a> y <a href="callto://01555433865" title="Llamar"> (55)55
                                             43 38 65</a>

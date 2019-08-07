@@ -16,7 +16,7 @@ height:;
 
 <!-- Principal Banner Text -->
 {% block banner-text %}
-<h5>Compañía de Teatro</h5>
+<h5>Grupo de Teatro</h5>
 <p>Contigo América</p>
 {% endblock banner-text %}
 {% block banner-text-style %}
@@ -72,12 +72,12 @@ background-color: #d64223;
 			<div class="bio-5">
 				<img src="{% static 'core/img/historia/grupo-4.jpg' %}" alt="Notebook" style="width:100%;">
 				<div class="bio-content">
-					<h1>Compañía Contigo América</h1>
+					<h1>Grupo de Teatro Contigo América</h1>
 					<p>Teatro Independiente</p>
 				</div>
 			</div>
 			<div class="img-gray bio-6">
-				<img src="{% static 'core/img/grupo/grupo-3.jpg' %}" alt="Notebook" style="width:100%;">
+				<img src="{% static 'core/img/grupo/45.jpg' %}" alt="Notebook" style="width:100%;">
 
 			</div>
 			<div class="img-gray bio-7">
@@ -134,10 +134,9 @@ background-color: #d64223;
 				<h4>Autor {{i.autor}}</h4>
 				<h4>Dirección {{i.director}}</h4>
 				<p>{{i.descripcion | safe}}</p>
-				<!-- <ul>
-					<li>Etiquetas</li>
-					<li>Etiquetas</li>
-				</ul> -->
+				<ul>
+					<li><a href="{% url 'repertorio_bio' i.id %}" >Más Info</a></li>
+				</ul>
 			</div>
 		</div>
 		{% endfor %}

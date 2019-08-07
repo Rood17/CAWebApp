@@ -104,7 +104,7 @@ def cartelera(request):
         for i in dE:
             aE = int(i.fechaCa)
             rE.append(aE)
-        
+
     # Próxima Función
     # Ordenar los días
     dayss = sorted(r)
@@ -115,15 +115,15 @@ def cartelera(request):
         # El mayor
         n = int(len(dayss))
         mayor = dayss[n-1]
-        
-        
+
+
         # Operación Número más cercano
         for i in range(len(dayss)):
             dd = dayss[i] - dia
             diferencia.append(dd)
             diferenciar = sorted(diferencia)
 
-        
+
         for o in range(len(diferenciar)):
             sd = dia + diferenciar[o]
             casicompleta.append(sd)
@@ -132,7 +132,7 @@ def cartelera(request):
                 de = casicompleta[o]
                 cool.append(de)
 
-            
+
         # Condiciones finales
         if dia in dayss:
             search_day = dia
@@ -141,10 +141,10 @@ def cartelera(request):
             search_day = menor
         elif dia == mayor:
             search_day = mayor
-           
+
         else:
             search_day = cool[0]
-    
+
     print(dia)
     print(hoy)
     print('holaaaaaaaaaa')
@@ -158,15 +158,15 @@ def cartelera(request):
         # El mayor
         nE = int(len(dayssE))
         mayorE = dayssE[nE-1]
-        
-        
+
+
         # Operación Número más cercano
         for i in range(len(dayssE)):
             ddE = dayssE[i] - dia
             diferenciaE.append(ddE)
             diferenciarE = sorted(diferenciaE)
 
-        
+
         for o in range(len(diferenciarE)):
             sdE = dia + diferenciarE[o]
             casicompletaE.append(sdE)
@@ -175,7 +175,7 @@ def cartelera(request):
                 deE = casicompletaE[o]
                 coolE.append(deE)
 
-            
+
         # Condiciones finales
         if dia in dayssE:
             espe_day = dia
@@ -186,35 +186,35 @@ def cartelera(request):
             espe_day = mayorE
         else:
             espe_day = coolE[0]
-    
+
 
     print(hoyE)
     # Calendario Días de la Semana
     # si el tamaño de cool es mayor a 0
-    if len(cool) == 1: 
+    if len(cool) == 1:
         diaCal_1 = cool[0]
-        diaCal_1_q = Presentaciones.objects.filter(diaSem__diaSem=cool[0])
+        diaCal_1_q = Presentaciones.objects.filter(diaSem__diaSem=cool[0], status__icontains='01')
         for i in diaCal_1_q:
             diaCal_id = i.id
 
     elif len(cool) ==2:
         diaCal_1 = cool[0]
         diaCal_2 = cool[1]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
 
         for i in diaCal_1_q:
             dci_1 = i.titulo.id
         for i in diaCal_2_q:
             dci_2 = i.titulo.id
-       
+
     elif len(cool) ==3:
         diaCal_1 = cool[0]
         diaCal_2 = cool[1]
         diaCal_3 = cool[2]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
 
         for i in diaCal_1_q:
             dci_1 = i.titulo.id
@@ -228,10 +228,10 @@ def cartelera(request):
         diaCal_2 = cool[1]
         diaCal_3 = cool[2]
         diaCal_4 = cool[3]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
 
         for i in diaCal_1_q:
             dci_1 = i.titulo.id
@@ -248,11 +248,11 @@ def cartelera(request):
         diaCal_3 = cool[2]
         diaCal_4 = cool[3]
         diaCal_5 = cool[4]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -273,12 +273,12 @@ def cartelera(request):
         diaCal_4 = cool[3]
         diaCal_5 = cool[4]
         diaCal_6 = cool[5]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -302,13 +302,13 @@ def cartelera(request):
         diaCal_5 = cool[4]
         diaCal_6 = cool[5]
         diaCal_7 = cool[6]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -335,14 +335,14 @@ def cartelera(request):
         diaCal_6 = cool[5]
         diaCal_7 = cool[6]
         diaCal_8 = cool[7]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -372,15 +372,15 @@ def cartelera(request):
         diaCal_7 = cool[6]
         diaCal_8 = cool[7]
         diaCal_9 = cool[8]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -413,16 +413,16 @@ def cartelera(request):
         diaCal_8 = cool[7]
         diaCal_9 = cool[8]
         diaCal_11 = cool[9]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -459,16 +459,16 @@ def cartelera(request):
         diaCal_11 = cool[9]
         diaCal_12 = cool[10]
         diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -507,18 +507,18 @@ def cartelera(request):
         diaCal_11 = cool[9]
         diaCal_12 = cool[10]
         diaCal_13 = cool[11]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -561,19 +561,19 @@ def cartelera(request):
         diaCal_13 = cool[11]
         diaCal_14 = cool[12]
 
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -618,20 +618,20 @@ def cartelera(request):
         diaCal_13 = cool[11]
         diaCal_14 = cool[12]
         diaCal_15 = cool[13]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
-        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
+        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -679,21 +679,21 @@ def cartelera(request):
         diaCal_14 = cool[12]
         diaCal_15 = cool[13]
         diaCal_16 = cool[14]
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
-        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15))
-        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16))
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
+        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15, status__icontains='01'))
+        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -723,9 +723,9 @@ def cartelera(request):
         for i in diaCal_14_q:
             dci_14 = i.titulo.id
         for i in diaCal_15_q:
-            dci_15 = i.titulo.id    
+            dci_15 = i.titulo.id
         for i in diaCal_16_q:
-            dci_16 = i.titulo.id  
+            dci_16 = i.titulo.id
 
     elif len(cool) ==17:
         diaCal_1 = cool[0]
@@ -743,23 +743,23 @@ def cartelera(request):
         diaCal_14 = cool[12]
         diaCal_15 = cool[13]
         diaCal_16 = cool[14]
-        diaCal_17 = cool[15]       
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
-        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15))
-        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16))
-        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17))
+        diaCal_17 = cool[15]
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
+        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15, status__icontains='01'))
+        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16, status__icontains='01'))
+        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -789,11 +789,11 @@ def cartelera(request):
         for i in diaCal_14_q:
             dci_14 = i.titulo.id
         for i in diaCal_15_q:
-            dci_15 = i.titulo.id    
+            dci_15 = i.titulo.id
         for i in diaCal_16_q:
-            dci_16 = i.titulo.id  
+            dci_16 = i.titulo.id
         for i in diaCal_17_q:
-            dci_17 = i.titulo.id 
+            dci_17 = i.titulo.id
 
     elif len(cool) ==18:
         diaCal_1 = cool[0]
@@ -812,24 +812,24 @@ def cartelera(request):
         diaCal_15 = cool[13]
         diaCal_16 = cool[14]
         diaCal_17 = cool[15]
-        diaCal_18 = cool[16]       
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
-        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15))
-        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16))
-        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17))
-        diaCal_18_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_18))
+        diaCal_18 = cool[16]
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
+        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15, status__icontains='01'))
+        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16, status__icontains='01'))
+        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17, status__icontains='01'))
+        diaCal_18_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_18, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -859,13 +859,13 @@ def cartelera(request):
         for i in diaCal_14_q:
             dci_14 = i.titulo.id
         for i in diaCal_15_q:
-            dci_15 = i.titulo.id    
+            dci_15 = i.titulo.id
         for i in diaCal_16_q:
-            dci_16 = i.titulo.id  
+            dci_16 = i.titulo.id
         for i in diaCal_17_q:
             dci_17 = i.titulo.id
         for i in diaCal_18_q:
-            dci_18 = i.titulo.id 
+            dci_18 = i.titulo.id
 
     elif len(cool) ==19:
         diaCal_1 = cool[0]
@@ -885,25 +885,25 @@ def cartelera(request):
         diaCal_16 = cool[14]
         diaCal_17 = cool[15]
         diaCal_18 = cool[16]
-        diaCal_19 = cool[17]            
-        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
-        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
-        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
-        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15))
-        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16))
-        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17))
-        diaCal_18_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_18))
-        diaCal_19_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_19))
+        diaCal_19 = cool[17]
+        diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1, status__icontains='01'))
+        diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2, status__icontains='01'))
+        diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3, status__icontains='01'))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
+        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15, status__icontains='01'))
+        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16, status__icontains='01'))
+        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17, status__icontains='01'))
+        diaCal_18_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_18, status__icontains='01'))
+        diaCal_19_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_19, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -933,9 +933,9 @@ def cartelera(request):
         for i in diaCal_14_q:
             dci_14 = i.titulo.id
         for i in diaCal_15_q:
-            dci_15 = i.titulo.id    
+            dci_15 = i.titulo.id
         for i in diaCal_16_q:
-            dci_16 = i.titulo.id  
+            dci_16 = i.titulo.id
         for i in diaCal_17_q:
             dci_17 = i.titulo.id
         for i in diaCal_18_q:
@@ -961,26 +961,26 @@ def cartelera(request):
         diaCal_16 = cool[14]
         diaCal_17 = cool[15]
         diaCal_18 = cool[16]
-        diaCal_19 = cool[17] 
-        diaCal_20 = cool[18]           
+        diaCal_19 = cool[17]
+        diaCal_20 = cool[18]
         diaCal_1_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_1))
         diaCal_2_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_2))
         diaCal_3_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_3))
-        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4))
-        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5))
-        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6))
-        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7))
-        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8))
-        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9))
-        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11))
-        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12))
-        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13))
-        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14))
-        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15))
-        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16))
-        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17))
-        diaCal_18_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_18))
-        diaCal_19_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_19))
+        diaCal_4_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_4, status__icontains='01'))
+        diaCal_5_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_5, status__icontains='01'))
+        diaCal_6_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_6, status__icontains='01'))
+        diaCal_7_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_7, status__icontains='01'))
+        diaCal_8_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_8, status__icontains='01'))
+        diaCal_9_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_9, status__icontains='01'))
+        diaCal_11_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_11, status__icontains='01'))
+        diaCal_12_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_12, status__icontains='01'))
+        diaCal_13_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_13, status__icontains='01'))
+        diaCal_14_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_14, status__icontains='01'))
+        diaCal_15_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_15, status__icontains='01'))
+        diaCal_16_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_16, status__icontains='01'))
+        diaCal_17_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_17, status__icontains='01'))
+        diaCal_18_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_18, status__icontains='01'))
+        diaCal_19_q = list(Presentaciones.objects.filter(fechaCal__fechaCa=diaCal_19, status__icontains='01'))
 
 
         for i in diaCal_1_q:
@@ -1010,9 +1010,9 @@ def cartelera(request):
         for i in diaCal_14_q:
             dci_14 = i.titulo.id
         for i in diaCal_15_q:
-            dci_15 = i.titulo.id    
+            dci_15 = i.titulo.id
         for i in diaCal_16_q:
-            dci_16 = i.titulo.id  
+            dci_16 = i.titulo.id
         for i in diaCal_17_q:
             dci_17 = i.titulo.id
         for i in diaCal_18_q:
@@ -1020,44 +1020,37 @@ def cartelera(request):
         for i in diaCal_19_q:
             dci_19 = i.titulo.id
 
-    
-    print('soy dios s')
+
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
     print(diaCal_5)
 
-    print('soy dios s')
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
     print(diaCal_3)
 
-    print('soy dios s')
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
     print(diaCal_3)
 
-    print('soy dios s')
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
     print(diaCal_3)
 
-    print('soy dios s')
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
     print(diaCal_3)
 
-    print('soy dios s')
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
     print(diaCal_3)
 
-    print('soy dios s')
     print(dci_2)
     print(dci_3)
     print(diaCal_2)
@@ -1074,13 +1067,13 @@ def cartelera(request):
 
     context = {'mes_cal_2':mes_cal_2,'mes_cal':mes_cal,'año':ahora.year,
         'espe_day':espe_day,'mes':mes_actual,'search_day':search_day,
-        'cartelera':cartelera, 'hero_func':hero_func, 'hoyE':hoyE  , 
+        'cartelera':cartelera, 'hero_func':hero_func, 'hoyE':hoyE  ,
         'hoy':hoy,'funciones':funciones, 'program_espe':program_espe,
         'dst':dst, 'prox_ev':prox_ev, 'diaCal_1':diaCal_1,'diaCal_2':diaCal_2,
         'diaCal_3':diaCal_3,'diaCal_4':diaCal_4,'diaCal_5':diaCal_5,
         'diaCal_6':diaCal_6,'diaCal_7':diaCal_7,'diaCal_8':diaCal_8,
-        'diaCal_9':diaCal_9,'dci_1':dci_1, 'dci_2':dci_2, 'dci_3':dci_3 , 
-        'dci_4':dci_4 , 'dci_5':dci_5 , 'dci_6':dci_6 , 'dci_7':dci_7 , 
+        'diaCal_9':diaCal_9,'dci_1':dci_1, 'dci_2':dci_2, 'dci_3':dci_3 ,
+        'dci_4':dci_4 , 'dci_5':dci_5 , 'dci_6':dci_6 , 'dci_7':dci_7 ,
         'dci_8':dci_8 , 'dci_9':dci_9,'dci_11':dci_11, 'dci_12':dci_12,
         'dci_13':dci_13, 'dci_14':dci_14, 'dci_15':dci_15, 'dci_16':dci_16,
         'dci_17':dci_17, 'dci_18':dci_18, 'dci_19':dci_19}

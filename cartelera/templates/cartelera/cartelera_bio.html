@@ -57,6 +57,10 @@ left:50%;
                         {{dia.diaSem}}{% if not forloop.last %} | {% endif %}
                         {% endfor %}
                 </h1>
+                <p>{% for dia in i.fechaCal.all %}
+								{{dia.fechaCa}} |
+				    {% endfor %} 
+                </p>
                     
             </div>
             <div class="hora-bio">
@@ -113,7 +117,7 @@ left:50%;
                     </li>
                     <li>
                         <p>
-                            <h4>Público</h4> - {{i.publico}}
+                            <h4>Público</h4> - {{i.get_publico_display}}
                         </p>
                     </li>
                     <li>

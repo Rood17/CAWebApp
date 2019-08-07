@@ -36,21 +36,17 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
                 <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
                 <div class="post-content">
                     <h2>{{i.titulo}}</h2>
-                    <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                        recteque
-                        expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                    <p>{{i.descripcion}}</p>
                 </div>
                 </a>
             </div>
         {% endfor %}
     {% else %}
         <div class="hero-one">
-            <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
+            <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
             <div class="post-content">
-                <h2>ACÁ NO ENTRADAS</h2>
-                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                    recteque
-                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                <h2>SIN ENTRADAS</h2>
+                <p>Por el momento no existen entradas en esta sección</p>
             </div>
         </div>
     {% endif %}
@@ -63,19 +59,15 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
             <img src="{{i.imagen.url}}" alt="Notebook" style="width:100%;">
             <div class="post-content">
                 <h4>{{i.titulo}}</h4>
-                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                    recteque
-                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                <p>{{i.descripcion}}</p>
             </div>
             </a>
             {% endfor %}
         {% else %}
             <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
             <div class="post-content">
-                <h4>Heading</h4>
-                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                    recteque
-                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                <h4>SIN ENTRADAS</h4>
+                <p>Sin Entradas en esta sección.</p>
             </div>
         {% endif %}
         </div>
@@ -93,10 +85,8 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
         {% else %}
             <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
             <div class="post-content">
-                <h4>Heading</h4>
-                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                    recteque
-                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                <h4>SIN ENTRADAS</h4>
+                <p>Sin entradas en esta sección.</p>
             </div>
         {% endif %}
         </div>
@@ -118,10 +108,8 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
         {% else %}
             <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
             <div class="post-content">
-                <h4>Heading</h4>
-                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                    recteque
-                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                <h4>SIN ENTRADAS</h4>
+                <p>Sin entradas en esta sección.</p>
             </div>
         {% endif %}
         </div>
@@ -141,10 +129,8 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
         {% else %}
             <img src="{% static 'core/img/inst/historia/blas.jpg' %}" alt="Notebook" style="width:100%;">
             <div class="post-content">
-                <h4>Heading</h4>
-                <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
-                    recteque
-                    expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei.</p>
+                <h4>SIN ENTRADAS</h4>
+                <p>Sin entradas en esta sección.</p>
             </div>
         {% endif %}
         </div>
@@ -153,27 +139,44 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
 
 <div class="blog-main"> 
     <div class="blog-ul-container">
-    {% for i in test %}  
-                          
-            <div class="filterDiv blog-br  {% for a in i.etiquetaBlog.all %}
-                                            {{a.name}}
-                                          {% endfor %}">
-                <a href="">
-                    <div class="blog-main-header" style="background-image:url('{{i.imagen.url}}');">
-                        <h4>{{i.titulo}}</h4>
-                        <h3></h3>
-                    </div>
-                    <div class="blog-main-footer">
-                        <h2>{{i.autor}}</h2>
-                        <p>{{i.contenido | safe}}</p>
-                    </div>
-                </a>
-            </div>
+
+    {% if test %}
+        {% for i in test %}  
+                            
+                <div class="filterDiv blog-br  {% for a in i.etiquetaBlog.all %}
+                                                {{a.name}}
+                                            {% endfor %}">
+                    <a href="{% url 'blog-bio' 0 %}">
+                        <div class="blog-main-header" style="background-image:url('{{i.imagen.url}}');">
+                            <h4>{{i.titulo}}</h4>
+                        </div>
+                        <div class="blog-main-footer">
+                            <h2>{{i.autor}}</h2>
+                            <p>{{i.contenido | safe}}</p>
+                        </div>
+                    </a>
+                </div>
 
 
 
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+    <div class="resultado-sin-contenido" style="padding:0 3%;">
+        <h1>Lo sentimos, por el momento no existen entradas que mostrar.</h1>
+        <h2>Lo invitamos visite otras secciones de la página...</h2>
+        <ul>
+            <li><a href="{% url 'cartelera' %}">Cartelera</a></li>
+            <li><a href="{% url 'historia' %}">Nuestra Historia</a></li>
+            <li><a href="{% url 'biblioteca' %}">Nuestra Bilbioteca</a></li>
+            <li><a href="{% url 'galeria' %}">Nuestra Galería</a></li>
+            <li><a href="{% url 'foro' %}">Nuestro Foro</a></li>
+            <li><a href="{% url 'compañia' %}">Nuestra Compañía de Teatro</a></li>
+        </ul>
     </div>
+    {% endif %}
+    </div>
+
+    {% if test %}
     <div class="filtros" id="myBtnFilters">
         <button class="btnBlog activeFilter" onclick="filterSelection('all')">Mostrar Todas las obras</button>
         <h3>Filtros</h3>
@@ -181,6 +184,7 @@ background-image: url('{% static 'core/img/galeria/escena/2.jpg' %}');
         <button class="btnBlog" onclick="filterSelection('{{a}}')">{{a}}</button>
         {% endfor %}
     </div>
+    {% endif %}
 
 </div>
 

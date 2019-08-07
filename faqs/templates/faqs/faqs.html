@@ -25,13 +25,19 @@
     <div class="">
             <p>Si no encuentras alguna de tus dudas, ponte en contacto con nosotros y con gusto te responderemos.</p>
             <div class="kit-contacto">
-                <a><i class='fab fa-whatsapp'></i></a>
-                <a><i class='fas fa-envelope'></i></a>
-				<a><i class='fas fa-phone'></i></a>
+				<a title="Escríbenos en Messenger" target="_blank" href="https://m.me/ContigoAmerica"><i id="footer-whats" class='fab fa-facebook-messenger'></i></a>
+                <a href="mailto:contigoamerica@yahoo.com.mx" target="_blank" title="Send an e-mail to - contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'></i></a>
+				<a href="tel:01 (55)75 89 09 17" target="_blank" ><i title="01 (55)75 89 09 17" class='fas fa-phone'></i></a>	
                 <span> | </span>
-                <a><i class="fab fa-facebook-f"></i></a>
-				<a><i class="fab fa-twitter"></i></a>
-				<a><i class="fab fa-instagram"></i></a>
+                {% if LINK_FACEBOOK %}
+                <a target="_blank" href="{{LINK_FACEBOOK}}" ><i title="Facebook" class="fab fa-facebook-f"></i></a>
+                {% endif %}
+                {% if LINK_TWITTER %}
+                <a target="_blank" href="{{LINK_TWITTER}}" ><i title="Twitter" class="fab fa-twitter"></i></a>
+                {% endif %}
+                {% if LINK_INSTAGRAM %}
+                <a target="_blank" href="{{LINK_INSTAGRAM}}" ><i title="Instagram" class="fab fa-instagram"></i></a>
+                {% endif %}
             </div>    
         </div>
 {% endblock head-text %}

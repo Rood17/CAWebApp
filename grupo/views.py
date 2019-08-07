@@ -36,3 +36,12 @@ def compañia_bio(request, act_id):
     print(str('Actor - ') + str(actor))
 
     return render(request, 'grupo/grupo_bio.html', context)
+
+def repertorio_bio(request, obr_id):
+    obra = get_object_or_404(repertorio, id=obr_id)
+
+    obraq = repertorio.objects.filter(titulo__icontains=obra)
+    context = {'obra':obraq}
+    print(str('Obra - ') + str(obra))
+
+    return render(request, 'grupo/repertorio_bio.html', context)

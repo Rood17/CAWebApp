@@ -18,11 +18,18 @@ background-color: #d64223;
 {% endblock %}
 
 {% block head-text %}
-<p>Lorem ipsum, dolor sit amet consectetur
-    adipisicing elit. Fugiat nam, numquam
-    itaque dicta hic repudiandae nihil possimus
-    laudantium atque at libero cum iste odit eveniet
-    liquam debitis placeat dolores reprehenderit!</p>
+<p>Nuestro proyecto de grupo abarca la producción de obras, 
+la investigación teatral, la formación actoral y la gestión cultural.
+ Desde nuestro inicio nos planteamos transitar el quehacer teatral como una
+  forma de expresión de ideas, sentimientos y búsqueda grupal, 
+  ejerciendo la mayor libertad posible en la creación. 
+  En el devenir de estos años, la experiencia humana nos 
+  sigue señalando que el teatro, en su expresión artística, 
+  estética y humanista enriquece la sensibilidad y la conciencia 
+  de lo que somos y queremos ser. Nuestra entrega y compromiso para 
+  con el teatro mexicano, latinoamericano y universal ha sido exponer 
+  la condición humana e intentar la construcción de una sociedad más justa,
+   más libre, más creativa.</p>
 {% endblock head-text %}
 
 {% block content %}
@@ -38,7 +45,7 @@ background-color: #d64223;
                 <img src="{{i.imagenPerfil.url}}" alt="Mike" style="">
                 <div class="about-container">
                     <h2>{{i.nombre.first_name}} {{i.nombre.last_name}}</h2>
-                    <p class="about-title"></p>
+                    <p class="about-title">{{i.puesto}}</p>
                     <p></p>
                     <p>Contacto</p>
                     <p><button class="about-button"><a href="{% url 'acerca-bio' i.nombre.id %}">Más Info</a></button></p>

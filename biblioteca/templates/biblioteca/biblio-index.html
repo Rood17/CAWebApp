@@ -37,8 +37,17 @@
         <hr>
         {% if not query %}
             <h1>Lo sentimos por el momento no hay elementos.</h1>
-            <h2>Estaremos contento de recibirlo en la biblioteca de forma presencial en el
+            <h2>Estaremos contentos de recibirlo en la biblioteca de forma presencial en el
             Foro Contigo América (con previa cita).</h2>
+            <h2>Lo invitamos visite otras secciones de la página...</h2>
+            <ul>
+                <li><a href="{% url 'cartelera' %}">Cartelera</a></li>
+                <li><a href="{% url 'historia' %}">Nuestra Historia</a></li>
+                <li><a href="{% url 'blog' %}">Nuestro Blog</a></li>
+                <li><a href="{% url 'galeria' %}">Nuestra Galería</a></li>
+                <li><a href="{% url 'foro' %}">Nuestro Foro</a></li>
+                <li><a href="{% url 'compañia' %}">Nuestra Compañía de Teatro</a></li>
+            </ul>
         {% endif %}
 
         <br>

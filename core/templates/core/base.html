@@ -11,9 +11,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 	<!-- Title -->
 	<title>Contigo América || {% block title %}{% endblock title %}</title>
+	<!-- Ico -->
 	<link rel="Shortcut Icon" href="{% static 'core/img/logos/logo_footer.ico' %}" type="image/x-icon" />
 	<!-- Estilos -->
-	<link href="{% static 'core/css/stylesca.css' %}" rel="stylesheet">
+	<link href="{% static 'core/css/styleca_v4.css' %}" rel="stylesheet">
 	<!-- Fuentes -->
 	<link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700|Sree+Krushnadevaraya|Tinos:400,400i,700,700i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Gudea:400,400i,700|Karla:400,400i,700,700i|Lato:400,400i,700,700i,900" rel="stylesheet">
@@ -23,14 +24,43 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- jQuerry -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="{% static 'core/js/jquery-1.11.2.js' %}"></script>
+
 	<!-- w3 Modals -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	{% if 'foro' in request.path %}
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	{% endif %}
 	<!-- Block Head -->
 	{% block head %}{% endblock head %}
+	<!-- Este es el elemento META Author -->
+<meta name="author" content="Contigo América." />
+
+<!-- Este es el elemento META Description -->
+<meta name="description" content="Desde hace más de 31 años, desarrollamos una trayectoria de trabajo artístico y cultural, conformando un referente del teatro independiente mexicano." />
+
+<!-- Este es el elemento META Keywords -->
+<meta name="keywords" content="teatro, foro, independiente, contigo, américa, mexico, sudamerica, indie, puesta en escena, contigo américa, colonia napoles, investigación, talleres, obras de teatro, df, cartelera, doblaje, actuación, improvisación, muestra de artes escenicas, ciudad de mexico, fuente ovejuna, trayectoria, centroforward, raquel seoane, facebook" />
+
+<!-- Este es el elemento META Revisit after -->
+<meta name="revisit-after" content="1 days">
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26404307-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
 </head>
 
 
-<body class="" {% block body %}{% endblock %} >
+<body class="">
 	{% block biblio %}{% endblock biblio %}
 
 	{% if request.path != '/biblioteca/' %}
@@ -47,7 +77,7 @@
 			<!-- Nav intro Foro -->
 			<div class="nav-intro nav-intro-base">
 				<button id="introForoModalBtn" title="Menú Foro" class="nav-intro-btn-base"><i class="material-icons icons-intro">menu</i>  Nuestro Foro</button>
-				
+
 				<!-- Foro Intro Modal -->
 				<div id="introForoModal" class="modalDp intro-modal">
 					<!-- Modal Content -->
@@ -55,23 +85,23 @@
 						<span class="intro-modal-close introFMC">&times;</span>
 						<div class="fix-menu-intro-top-foro menu-intro-top">
 							<div class="inline-block intro-box intro-cartelera-content">
-								<img src="{% static 'core/img/foro/cartelera/Danieltatita.jpg' %}" />
+								<img src="{% static 'core/img/foro/cartelera/3.jpg' %}" />
 								<div class="principal-intro-link">
-									
+
 								</div>
 								<div id="foroColor-4" class="second-intro-links">
 									<a href="{% url 'cartelera' %}">Cartelera</a>
-									<a href="{% url 'compañia' %}">Compañia de Contigo América</a>
+									<a href="{% url 'compañia' %}">Grupo de Teatro Contigo América</a>
 									<a href="{% url 'blog' %}#calendario">Blog</a>
 								</div>
 							</div>
 							<div class="inline-block intro-box intro-foro-content">
-								<img src="{% static 'core/img/foro/espacios/biblio.jpg' %}" />
+								<img src="{% static 'core/img/foro/espacios/3.jpg' %}" />
 								<div class="principal-intro-link">
-									
+
 								</div>
 								<div id="foroColor-2" class="second-intro-links">
-									<a href="{% url 'foro' %}">Foro</a>
+									<a href="{% url 'foro' %}">Nuestros Espacios</a>
 									<a href="{% url 'convocatorias' %}">Presenta tu obra</a>
 									<a href="{% url 'rentas' %}">Renta un espacio</a>
 								</div>
@@ -79,12 +109,12 @@
 							<div class="inline-block intro-box intro-faqs-content">
 								<img src="{% static 'core/img/foro/espacios/fachada.jpg' %}" />
 								<div class="principal-intro-link">
-									
+
 								</div>
 								<div id="foroColor-3" class="second-intro-links">
-									<a href="{% url 'contacto' %}#mapa">Ubicación</a>
-									<a>Arizona #156, col. Nápoles, CDMX.</a>
-									<a href="{% url 'contacto' %}#indicaciones">Indicaciones</a>
+									<a href="{% url 'contacto' %}#mapa">Nuestra Historia</a>
+									<a href="{% url 'biblioteca' %}" >Biblioteca</a>
+									<a href="{% url 'contacto' %}#indicaciones">Ubicación</a>
 								</div>
 							</div>
 						</div>
@@ -96,9 +126,14 @@
 									<a href="{% url 'contacto' %}#contact">Directorio</a>
 									<a href="{% url 'contacto' %}">Contacto</a>
 								</div>
-								<div class="intro-contact-sublinks">
+								<div class="intro-contact-sublinks display-contact-sublinks">
 									<a href="mailto:contigoamerica@yahoo.com.mx" target="_blank" title="Send an e-mail to - contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'></i> - contigoamerica@yahoo.com.mx</a>
 									<a href="tel:01 (55)75 89 09 17" target="_blank" ><i title="01 (55)75 89 09 17" class='fas fa-phone'></i> - (55) 75 89 09 17</a>
+								</div>
+								<div class="intro-contact-sublinks respon-contact-sublinks">
+									<a title="Escríbenos en Messenger" target="_blank" href="https://m.me/ContigoAmerica"><i id="footer-whats" class='fab fa-facebook-messenger'></i></a>
+									<a href="mailto:contigoamerica@yahoo.com.mx" target="_blank" title="Send an e-mail to - contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'></i></a>
+									<a href="tel:01 (55)75 89 09 17" target="_blank" ><i title="01 (55)75 89 09 17" class='fas fa-phone'></i></a>
 								</div>
 							</div>
 							<div class="float-right intro-general-links">
@@ -125,7 +160,7 @@
 			<!-- Nav intro Institución -->
 			<div class="nav-intro nav-intro-base">
 				<button id="introInstModalBtn" title="Menú Institución" class="nav-intro-btn-base"><i class="material-icons icons-intro">menu</i>  Institución</button>
-				
+
 				<div id="introInstModal" class="modalDp intro-modal">
 
 					<div id="instMenu" class="nav-intro-content">
@@ -134,21 +169,21 @@
 							<div class="inline-block intro-box intro-c-content">
 								<img src="{% static 'core/img/inst/compania/grupo.jpg' %}" />
 								<div class="principal-intro-link">
-									
+
 								</div>
 								<div id="foroColor-5" class="second-intro-links">
-									<a href="{% url 'compañia' %}">Compañía</a>
-									<a href="{% url 'acerca' %}">Grupo</a>
+									<a href="{% url 'compañia' %}">Grupo de Teatro</a>
 									<a href="{% url 'compañia' %}#repertorio">Repertorio</a>
+									<a href="{% url 'historia' %}">Historia</a>
 								</div>
 							</div>
 							<div class="inline-block intro-box intro-historia-content">
 								<img src="{% static 'core/img/inst/historia/blas.jpg' %}" />
 								<div class="principal-intro-link">
-									
+
 								</div>
 								<div id="foroColor-6" class="second-intro-links">
-									<a href="{% url 'historia' %}">Historia</a>
+									<a href="{% url 'foro' %}">Nuestro Foro</a>
 									<a href="{% url 'historia' %}#Qsomos">¿Quiénes Somos?</a>
 									<a href="{% url 'galeria' %}">Galería</a>
 								</div>
@@ -156,7 +191,7 @@
 							<div class="inline-block intro-box intro-ints-content">
 								<img src="{% static 'core/img/inst/quehacer/4.jpg' %}" />
 								<div class="principal-intro-link">
-									
+
 								</div>
 								<div id="foroColor-7" class="second-intro-links">
 									<a href="{% url 'blog' %}">Nuestro Blog</a>
@@ -173,9 +208,14 @@
 									<a href="{% url 'contacto' %}#contact">Directorio</a>
 									<a href="{% url 'contacto' %}">Contacto</a>
 								</div>
-								<div class="intro-contact-sublinks">
+								<div class="intro-contact-sublinks display-contact-sublinks">
 									<a href="mailto:contigoamerica@yahoo.com.mx" target="_blank" title="Send an e-mail to - contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'></i> - contigoamerica@yahoo.com.mx</a>
 									<a href="tel:01 (55)75 89 09 17" target="_blank" ><i title="01 (55)75 89 09 17" class='fas fa-phone'></i> - (55) 75 89 09 17</a>
+								</div>
+								<div class="intro-contact-sublinks respon-contact-sublinks">
+									<a title="Escríbenos en Messenger" target="_blank" href="https://m.me/ContigoAmerica"><i id="footer-whats" class='fab fa-facebook-messenger'></i></a>
+									<a href="mailto:contigoamerica@yahoo.com.mx" target="_blank" title="Send an e-mail to - contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'></i></a>
+									<a href="tel:01 (55)75 89 09 17" target="_blank" ><i title="01 (55)75 89 09 17" class='fas fa-phone'></i></a>
 								</div>
 							</div>
 							<div class="float-right intro-general-links">
@@ -193,7 +233,7 @@
 								<a href="{% url 'blog' %}" class="inline-block">Blog</a>
 								<a href="{% url 'faqs' %}" class="inline-block">Faqs</a>
 								<a href="{% url 'galeria' %}" class="inline-block">Galería</a>
-								
+
 
 							</div>
 
@@ -214,7 +254,7 @@
 						{% block banner-text %}{% endblock banner-text %}
 					</div>
 					{% if 'presentaciones' in request.path or 'obra' in request.path or 'bio' in request.path or 'compañero' in request.path %}
-						<div id="" 
+						<div id=""
 							 class="bio-banner-img">
 							{% block bio-perfil-img %}{% endblock %}
 							<div class="fecha-bio">
@@ -250,7 +290,7 @@
 					<a target="_blank" href="{{LINK_INSTAGRAM}}" ><i title="Instagram" class="fab fa-instagram"></i></a>
 					{% endif %}
 				</div>
-				<div class="footer-bottom" style="background-image:  
+				<div class="footer-bottom" style="background-image:
 				url('{% static 'core/img/logos/logo_footer.png' %}');">
 					<img />
 					<div class="footer-info-container">
@@ -265,7 +305,7 @@
 						<div class="menu-footer">
 							<h3>Institución</h3>
 							<a href="{% url 'historia' %}">Historia</a>
-							<a href="{% url 'compañia' %}">Compañía</a>
+							<a href="{% url 'compañia' %}">Grupo de Teatro</a>
 							<a href="{% url 'biblioteca' %}">Biblioteca</a>
 							<a href="{% url 'blog' %}">Blog</a>
 							<a href="{% url 'galeria' %}">Galería</a>
@@ -284,7 +324,7 @@
 									</li>
 									<li>
 										<div class="kit-contacto">
-											<a target="_blank" href="https://api.whatsapp.com/send?phone=5579569200&text=Info%20ContigoAmérica"><i id="footer-whats" class='fab fa-whatsapp'></i></a>
+											<a title="Escríbenos en Messenger" target="_blank" href="https://m.me/ContigoAmerica"><i id="footer-whats" class='fab fa-facebook-messenger'></i></a>
 											<a href="mailto:contigoamerica@yahoo.com.mx" target="_blank" title="Send an e-mail to - contigoamerica@yahoo.com.mx"><i class='fas fa-envelope'></i></a>
 											<a href="tel:01 (55)75 89 09 17" target="_blank" ><i title="01 (55)75 89 09 17" class='fas fa-phone'></i></a>
 											<span> | </span>
@@ -326,22 +366,22 @@
 				document.getElementById("base-logo-img").style.width = "0%";
 				document.getElementById("base-brand").style.display = "none";
 				document.getElementById("content").style.marginTop = "45px";
-				// 
+				//
 				document.getElementById("base-logo").style.padding = "0px";
 				document.getElementById("base-logo").style.marginTop = "-25px";
 				document.getElementById("base-menu").style.marginBottom = "0px";
-				// 
+				//
 				document.getElementById("navbar").style.padding = "0px";
 
 			} else if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 150) {
 				document.getElementById("base-logo-img").style.width = "0%";
 				document.getElementById("base-brand").style.display = "none";
 				document.getElementById("content").style.marginTop = "17%";
-				// 
+				//
 				document.getElementById("base-logo").style.padding = "0px";
 				document.getElementById("base-logo").style.marginTop = "-35px";
 				document.getElementById("base-menu").style.marginBottom = "0px";
-				// 
+				//
 				document.getElementById("navbar").style.padding = "0px";
 
 
@@ -356,7 +396,7 @@
 				document.getElementById("base-logo").style.paddingTop = "15px";
 				document.getElementById("base-logo").style.marginTop = "0px";
 				document.getElementById("base-menu").style.marginBottom = "20px";
-				// 
+				//
 				document.getElementById("navbar").style.padding = "1%";
 
 
@@ -370,7 +410,7 @@
 	<!-- Scripts NAV MODAL MENU -->
 	<script>
 		$(document).ready(function(){
-			
+
 		$("#foroColor-2").hover(function(){
 		$('#foroMenu').css("background-color", "#f8ec48");
 		});
@@ -401,7 +441,7 @@
 		// Get the <span> element that closes the modal
 		var spanb = document.getElementsByClassName("introFMC")[0];
 
-		// When the user clicks the button, open the modal 
+		// When the user clicks the button, open the modal
 		btn.onclick = function() {
 			modala.style.display = "block";
 		}
@@ -424,7 +464,7 @@
 		// Get the <span> element that closes the modal
 		var spana = document.getElementsByClassName("introClsM")[0];
 
-		// When the user clicks the button, open the modal 
+		// When the user clicks the button, open the modal
 		btn.onclick = function() {
 			modalInst.style.display = "block";
 		}

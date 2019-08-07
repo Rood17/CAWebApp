@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- Título de la página -->
-{% block title %}{% for i in perfil %}{{i.nombre.first_name}}{% endfor %}{% endblock title %}
+{% block title %}{% for i in perfil %}{{i.nombre}}{% endfor %}{% endblock title %}
 
 <!-- Body tag -->
 {% block body %}
