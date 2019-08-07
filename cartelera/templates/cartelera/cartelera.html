@@ -80,7 +80,7 @@ background-color: #d64223;
 									{{search_day}} {{mes}}
 								{% else %}
 									{% for dia in obra.diaSem.all %}
-									{{dia.diaSem}} {{search_day}}
+									{{search_day}} de {{mes}}
 									{% endfor %}
 								{% endif %}
 
@@ -163,7 +163,7 @@ background-color: #d64223;
 			{% else %}
 			{% for i in prox_ev %}
 				<p>Próximo Evento <span class="primary-color"></span> -
-					{{i.titulo}} {{espe_day}} {{mes}}
+					{{i.titulo}} {{espe_day}} de {{mes}}
 				</p>
 			{% endfor %}
 			{% endif %}
